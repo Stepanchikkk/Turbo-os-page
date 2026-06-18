@@ -1,0 +1,1980 @@
+{
+  "meta": {
+    "last_post_id": "344",
+    "last_update": "2026-06-17T22:48:34.876119"
+  },
+  "devices": [
+    {
+      "id": "poco_f8_pro",
+      "name": "POCO F8 Pro",
+      "image": null,
+      "category": "official",
+      "aliases": [
+        "POCO F8 PRO",
+        "Poco F8 Pro",
+        "POCO F8 Pro"
+      ]
+    },
+    {
+      "id": "redmi_note_14_pro_plus_5g",
+      "name": "Redmi Note 14 Pro Plus 5G",
+      "image": null,
+      "category": "official",
+      "aliases": [
+        "Redmi Note 14 Pro Plus 5G",
+        "RN14ProPlus5G"
+      ]
+    },
+    {
+      "id": "poco_f7",
+      "name": "POCO F7",
+      "image": null,
+      "category": "official",
+      "aliases": [
+        "POCO F7",
+        "Poco F7"
+      ]
+    },
+    {
+      "id": "poco_f6_pro",
+      "name": "POCO F6 Pro",
+      "image": null,
+      "category": "official",
+      "aliases": [
+        "POCO F6 Pro",
+        "POCO F6 PRO",
+        "Poco F6 Pro",
+        "POCO F6Pro"
+      ]
+    },
+    {
+      "id": "xiaomi_14_ultra",
+      "name": "Xiaomi 14 Ultra",
+      "image": null,
+      "category": "official",
+      "aliases": [
+        "Xiaomi 14 Ultra",
+        "Xiaomi 14Ultra"
+      ]
+    },
+    {
+      "id": "xiaomi_15",
+      "name": "Xiaomi 15",
+      "image": null,
+      "category": "official",
+      "aliases": [
+        "Xiaomi 15"
+      ]
+    },
+    {
+      "id": "xiaomi_14",
+      "name": "Xiaomi 14",
+      "image": null,
+      "category": "official",
+      "aliases": [
+        "Xiaomi 14"
+      ]
+    },
+    {
+      "id": "poco_f8_ultra",
+      "name": "POCO F8 Ultra",
+      "image": null,
+      "category": "official",
+      "aliases": [
+        "POCO F8 ULTRA",
+        "POCO F8 Ultra",
+        "Poco F8 Ultra"
+      ]
+    },
+    {
+      "id": "poco_f7_pro",
+      "name": "POCO F7 Pro",
+      "image": null,
+      "category": "official",
+      "aliases": [
+        "POCO F7 PRO",
+        "POCO F7 Pro",
+        "Poco F7 Pro"
+      ]
+    },
+    {
+      "id": "poco_f6",
+      "name": "POCO F6",
+      "image": null,
+      "category": "official",
+      "aliases": [
+        "POCO F6",
+        "Poco F6"
+      ]
+    },
+    {
+      "id": "poco_m8_pro_5g",
+      "name": "POCO M8 Pro 5G",
+      "image": null,
+      "category": "official",
+      "aliases": [
+        "POCO M8 Pro 5G",
+        "Poco M8 Pro 5G"
+      ]
+    },
+    {
+      "id": "xiaomi_17_pro",
+      "name": "Xiaomi 17 Pro",
+      "image": null,
+      "category": "official",
+      "aliases": [
+        "Xiaomi 17 Pro",
+        "Xiaomi 17Pro"
+      ]
+    },
+    {
+      "id": "poco_f7_ultra",
+      "name": "POCO F7 Ultra",
+      "image": null,
+      "category": "port",
+      "aliases": [
+        "POCO F7 Ultra",
+        "POCO F7Ultra",
+        "Poco F7 Ultra"
+      ]
+    },
+    {
+      "id": "xiaomi_13_pro",
+      "name": "Xiaomi 13 Pro",
+      "image": null,
+      "category": "port",
+      "aliases": [
+        "Xiaomi 13 Pro",
+        "Xiaomi 13Pro"
+      ]
+    },
+    {
+      "id": "xiaomi_12_pro",
+      "name": "Xiaomi 12 Pro",
+      "image": null,
+      "category": "port",
+      "aliases": [
+        "Xiaomi 12 Pro",
+        "Xiaomi 12Pro"
+      ]
+    },
+    {
+      "id": "xiaomi_12",
+      "name": "Xiaomi 12",
+      "image": null,
+      "category": "port",
+      "aliases": [
+        "Xiaomi 12"
+      ]
+    },
+    {
+      "id": "xiaomi_12s_ultra",
+      "name": "Xiaomi 12S Ultra",
+      "image": null,
+      "category": "port",
+      "aliases": [
+        "Xiaomi 12S Ultra",
+        "Xiaomi 12SUltra"
+      ]
+    },
+    {
+      "id": "xiaomi_12_lite",
+      "name": "Xiaomi 12 Lite",
+      "image": null,
+      "category": "port",
+      "aliases": [
+        "Xiaomi 12 Lite",
+        "Xiaomi 12Lite"
+      ]
+    },
+    {
+      "id": "poco_f5_pro",
+      "name": "POCO F5 Pro",
+      "image": null,
+      "category": "port",
+      "aliases": [
+        "POCO F5 Pro",
+        "POCO F5 PRO",
+        "Poco F5 Pro",
+        "Redmi K60",
+        "POCO F5 Pro / Redmi K60"
+      ]
+    },
+    {
+      "id": "poco_f5",
+      "name": "POCO F5",
+      "image": null,
+      "category": "port",
+      "aliases": [
+        "POCO F5",
+        "Poco F5"
+      ]
+    },
+    {
+      "id": "poco_x5_pro_5g",
+      "name": "POCO X5 Pro 5G",
+      "image": null,
+      "category": "port",
+      "aliases": [
+        "POCO X5 PRO 5G",
+        "POCO X5 Pro 5G",
+        "Poco X5 Pro 5G"
+      ]
+    },
+    {
+      "id": "poco_f4",
+      "name": "POCO F4",
+      "image": null,
+      "category": "port",
+      "aliases": [
+        "POCO F4",
+        "Poco F4"
+      ]
+    },
+    {
+      "id": "redmi_note_12_4g",
+      "name": "Redmi Note 12 4G / NFC",
+      "image": null,
+      "category": "port",
+      "aliases": [
+        "Redmi Note 12 4G",
+        "Redmi Note 12 4G / NFC",
+        "RN 12 4G / NFC",
+        "RN 12 4G"
+      ]
+    },
+    {
+      "id": "redmi_note_11_pro_5g",
+      "name": "Redmi Note 11 Pro 5G",
+      "image": null,
+      "category": "port",
+      "aliases": [
+        "Redmi Note 11 Pro 5G",
+        "RN 11 Pro 5G"
+      ]
+    },
+    {
+      "id": "poco_x3_pro",
+      "name": "POCO X3 Pro",
+      "image": null,
+      "category": "port",
+      "aliases": [
+        "POCO X3 Pro",
+        "POCO X3 PRO",
+        "Poco X3 Pro"
+      ]
+    },
+    {
+      "id": "redmi_note_10_pro",
+      "name": "Redmi Note 10 Pro",
+      "image": null,
+      "category": "port",
+      "aliases": [
+        "Redmi Note 10 Pro",
+        "RN10 Pro",
+        "RN 10 Pro"
+      ]
+    },
+    {
+      "id": "poco_f4_gt",
+      "name": "POCO F4 GT",
+      "image": null,
+      "category": "port",
+      "aliases": [
+        "POCO F4 GT",
+        "Poco F4 GT"
+      ]
+    },
+    {
+      "id": "poco_f3",
+      "name": "POCO F3",
+      "image": null,
+      "category": "port",
+      "aliases": [
+        "POCO F3",
+        "Poco F3"
+      ]
+    },
+    {
+      "id": "mi_10t_pro",
+      "name": "Mi 10T Pro",
+      "image": null,
+      "category": "port",
+      "aliases": [
+        "Mi 10T Pro",
+        "Xiaomi Mi 10T Pro",
+        "Mi10T Pro"
+      ]
+    },
+    {
+      "id": "mi_10",
+      "name": "Mi 10",
+      "image": null,
+      "category": "port",
+      "aliases": [
+        "Mi 10",
+        "Xiaomi Mi 10",
+        "Xiaomi Mi10",
+        "Mi10"
+      ]
+    }
+  ],
+  "roms": [
+    {
+      "id": "rom_723b492029d3",
+      "version": "3.0.313.0.WBLCNXM",
+      "type": "plus",
+      "date": "2026-06-17T17:45:59+00:00",
+      "download_link": null,
+      "changelog_link": "https://telegra.ph/TURBO-OS-PLUS-30-V21-12-14",
+      "price": 500,
+      "device_ids": [
+        "xiaomi_17_pro"
+      ],
+      "screenshot_post_id": null,
+      "plus_date": "16.06.26",
+      "discount_price": 250,
+      "discount_condition": "02.06.26"
+    },
+    {
+      "id": "rom_6841218190fc",
+      "version": "3.0.303.0.WOCCNXM",
+      "type": "plus",
+      "date": "2026-06-17T17:45:59+00:00",
+      "download_link": null,
+      "changelog_link": "https://telegra.ph/TURBO-OS-PLUS-30-V21-12-14",
+      "price": 500,
+      "device_ids": [
+        "xiaomi_15"
+      ],
+      "screenshot_post_id": null,
+      "plus_date": "16.06.26",
+      "discount_price": 250,
+      "discount_condition": "02.06.26"
+    },
+    {
+      "id": "rom_f2f0576a5863",
+      "version": "3.0.305.0.WPKCNXM",
+      "type": "plus",
+      "date": "2026-06-17T17:45:59+00:00",
+      "download_link": null,
+      "changelog_link": "https://telegra.ph/TURBO-OS-PLUS-30-V21-12-14",
+      "price": 500,
+      "device_ids": [
+        "poco_f8_pro"
+      ],
+      "screenshot_post_id": null,
+      "plus_date": "16.06.26",
+      "discount_price": 250,
+      "discount_condition": "02.06.26"
+    },
+    {
+      "id": "rom_364dd3931b1e",
+      "version": "3.0.303.0.WNPCNXM",
+      "type": "plus",
+      "date": "2026-06-17T17:45:59+00:00",
+      "download_link": null,
+      "changelog_link": "https://telegra.ph/TURBO-OS-PLUS-30-V21-12-14",
+      "price": 500,
+      "device_ids": [
+        "poco_f6"
+      ],
+      "screenshot_post_id": null,
+      "plus_date": "16.06.26",
+      "discount_price": 250,
+      "discount_condition": "02.06.26"
+    },
+    {
+      "id": "rom_eecae8f516da",
+      "version": "3.0.313.0.WPRCNXM",
+      "type": "plus",
+      "date": "2026-06-17T17:45:59+00:00",
+      "download_link": null,
+      "changelog_link": "https://telegra.ph/TURBO-OS-PLUS-30-V21-12-14",
+      "price": 500,
+      "device_ids": [
+        "poco_m8_pro_5g"
+      ],
+      "screenshot_post_id": null,
+      "plus_date": "16.06.26",
+      "discount_price": 250,
+      "discount_condition": "02.06.26"
+    },
+    {
+      "id": "rom_2c9ad62aeee4",
+      "version": "3.0.303.0.WOKCNXM",
+      "type": "plus",
+      "date": "2026-06-17T17:45:59+00:00",
+      "download_link": null,
+      "changelog_link": "https://telegra.ph/TURBO-OS-PLUS-30-V21-12-14",
+      "price": 500,
+      "device_ids": [
+        "poco_f7_pro"
+      ],
+      "screenshot_post_id": null,
+      "plus_date": "16.06.26",
+      "discount_price": 250,
+      "discount_condition": "02.06.26"
+    },
+    {
+      "id": "rom_c0c44a8659c5",
+      "version": "3.0.303.0.WOLCNXM",
+      "type": "plus",
+      "date": "2026-06-17T17:45:59+00:00",
+      "download_link": null,
+      "changelog_link": "https://telegra.ph/TURBO-OS-PLUS-30-V21-12-14",
+      "price": 500,
+      "device_ids": [
+        "poco_f7"
+      ],
+      "screenshot_post_id": null,
+      "plus_date": "16.06.26",
+      "discount_price": 250,
+      "discount_condition": "02.06.26"
+    },
+    {
+      "id": "rom_519925e80f88",
+      "version": "3.0.303.0.WNKCNXM",
+      "type": "plus",
+      "date": "2026-06-17T17:45:59+00:00",
+      "download_link": null,
+      "changelog_link": "https://telegra.ph/TURBO-OS-PLUS-30-V21-12-14",
+      "price": 500,
+      "device_ids": [
+        "poco_f6_pro"
+      ],
+      "screenshot_post_id": null,
+      "plus_date": "16.06.26",
+      "discount_price": 250,
+      "discount_condition": "02.06.26"
+    },
+    {
+      "id": "rom_fb414f599235",
+      "version": "3.0.304.0.WNACNXM",
+      "type": "plus",
+      "date": "2026-06-17T17:45:59+00:00",
+      "download_link": null,
+      "changelog_link": "https://telegra.ph/TURBO-OS-PLUS-30-V21-12-14",
+      "price": 500,
+      "device_ids": [
+        "xiaomi_14_ultra"
+      ],
+      "screenshot_post_id": null,
+      "plus_date": "16.06.26",
+      "discount_price": 250,
+      "discount_condition": "02.06.26"
+    },
+    {
+      "id": "rom_8f6f11bdb937",
+      "version": "3.0.303.0.WOPCNXM",
+      "type": "plus",
+      "date": "2026-06-17T17:45:59+00:00",
+      "download_link": null,
+      "changelog_link": "https://telegra.ph/TURBO-OS-PLUS-30-V21-12-14",
+      "price": 500,
+      "device_ids": [
+        "redmi_note_14_pro_plus_5g"
+      ],
+      "screenshot_post_id": null,
+      "plus_date": "16.06.26",
+      "discount_price": 250,
+      "discount_condition": "02.06.26"
+    },
+    {
+      "id": "rom_6896c8038387",
+      "version": "3.0.302.0.WNCCNXM",
+      "type": "plus",
+      "date": "2026-06-17T17:45:59+00:00",
+      "download_link": null,
+      "changelog_link": "https://telegra.ph/TURBO-OS-PLUS-30-V21-12-14",
+      "price": 500,
+      "device_ids": [
+        "xiaomi_14"
+      ],
+      "screenshot_post_id": null,
+      "plus_date": "16.06.26",
+      "discount_price": 250,
+      "discount_condition": "02.06.26"
+    },
+    {
+      "id": "rom_82ecd910698f",
+      "version": "3.0.303.0.WNKCNXM",
+      "type": "plus",
+      "date": "2026-06-17T17:45:59+00:00",
+      "download_link": null,
+      "changelog_link": "https://telegra.ph/TURBO-OS-PLUS-30-V21-12-14",
+      "price": 500,
+      "device_ids": [
+        "poco_x3_pro"
+      ],
+      "screenshot_post_id": null,
+      "plus_date": "16.06.26",
+      "discount_price": 250,
+      "discount_condition": "02.06.26"
+    },
+    {
+      "id": "rom_6bfa83096a3f",
+      "version": "3.0.303.0.WNKCNXM",
+      "type": "plus",
+      "date": "2026-06-17T17:45:59+00:00",
+      "download_link": null,
+      "changelog_link": "https://telegra.ph/TURBO-OS-PLUS-30-V21-12-14",
+      "price": 500,
+      "device_ids": [
+        "redmi_note_10_pro"
+      ],
+      "screenshot_post_id": null,
+      "plus_date": "16.06.26",
+      "discount_price": 250,
+      "discount_condition": "02.06.26"
+    },
+    {
+      "id": "rom_04d7c8cb16be",
+      "version": "3.0.303.0.WNKCNXM",
+      "type": "plus",
+      "date": "2026-06-17T17:45:59+00:00",
+      "download_link": null,
+      "changelog_link": "https://telegra.ph/TURBO-OS-PLUS-30-V21-12-14",
+      "price": 500,
+      "device_ids": [
+        "poco_f7_ultra"
+      ],
+      "screenshot_post_id": null,
+      "plus_date": "16.06.26",
+      "discount_price": 250,
+      "discount_condition": "02.06.26"
+    },
+    {
+      "id": "rom_fff98f4248b8",
+      "version": "3.0.303.0.WNKCNXM",
+      "type": "plus",
+      "date": "2026-06-17T17:45:59+00:00",
+      "download_link": null,
+      "changelog_link": "https://telegra.ph/TURBO-OS-PLUS-30-V21-12-14",
+      "price": 500,
+      "device_ids": [
+        "xiaomi_13_pro"
+      ],
+      "screenshot_post_id": null,
+      "plus_date": "16.06.26",
+      "discount_price": 250,
+      "discount_condition": "02.06.26"
+    },
+    {
+      "id": "rom_241834f39aa6",
+      "version": "3.0.303.0.WNKCNXM",
+      "type": "plus",
+      "date": "2026-06-17T17:45:59+00:00",
+      "download_link": null,
+      "changelog_link": "https://telegra.ph/TURBO-OS-PLUS-30-V21-12-14",
+      "price": 500,
+      "device_ids": [
+        "xiaomi_12_pro"
+      ],
+      "screenshot_post_id": null,
+      "plus_date": "16.06.26",
+      "discount_price": 250,
+      "discount_condition": "02.06.26"
+    },
+    {
+      "id": "rom_ac2b671bfbde",
+      "version": "3.0.303.0.WNKCNXM",
+      "type": "plus",
+      "date": "2026-06-17T17:45:59+00:00",
+      "download_link": null,
+      "changelog_link": "https://telegra.ph/TURBO-OS-PLUS-30-V21-12-14",
+      "price": 500,
+      "device_ids": [
+        "xiaomi_12"
+      ],
+      "screenshot_post_id": null,
+      "plus_date": "16.06.26",
+      "discount_price": 250,
+      "discount_condition": "02.06.26"
+    },
+    {
+      "id": "rom_965f4e5c616d",
+      "version": "3.0.303.0.WNKCNXM",
+      "type": "plus",
+      "date": "2026-06-17T17:45:59+00:00",
+      "download_link": null,
+      "changelog_link": "https://telegra.ph/TURBO-OS-PLUS-30-V21-12-14",
+      "price": 500,
+      "device_ids": [
+        "xiaomi_12s_ultra"
+      ],
+      "screenshot_post_id": null,
+      "plus_date": "16.06.26",
+      "discount_price": 250,
+      "discount_condition": "02.06.26"
+    },
+    {
+      "id": "rom_5bec8ab80d30",
+      "version": "3.0.303.0.WNKCNXM",
+      "type": "plus",
+      "date": "2026-06-17T17:45:59+00:00",
+      "download_link": null,
+      "changelog_link": "https://telegra.ph/TURBO-OS-PLUS-30-V21-12-14",
+      "price": 500,
+      "device_ids": [
+        "xiaomi_12_lite"
+      ],
+      "screenshot_post_id": null,
+      "plus_date": "16.06.26",
+      "discount_price": 250,
+      "discount_condition": "02.06.26"
+    },
+    {
+      "id": "rom_eb5f8c716a70",
+      "version": "3.0.303.0.WNKCNXM",
+      "type": "plus",
+      "date": "2026-06-17T17:45:59+00:00",
+      "download_link": null,
+      "changelog_link": "https://telegra.ph/TURBO-OS-PLUS-30-V21-12-14",
+      "price": 500,
+      "device_ids": [
+        "poco_f5_pro"
+      ],
+      "screenshot_post_id": null,
+      "plus_date": "16.06.26",
+      "discount_price": 250,
+      "discount_condition": "02.06.26"
+    },
+    {
+      "id": "rom_c35379d7cd22",
+      "version": "3.0.303.0.WNKCNXM",
+      "type": "plus",
+      "date": "2026-06-17T17:45:59+00:00",
+      "download_link": null,
+      "changelog_link": "https://telegra.ph/TURBO-OS-PLUS-30-V21-12-14",
+      "price": 500,
+      "device_ids": [
+        "poco_f5"
+      ],
+      "screenshot_post_id": null,
+      "plus_date": "16.06.26",
+      "discount_price": 250,
+      "discount_condition": "02.06.26"
+    },
+    {
+      "id": "rom_1034ac9d4c6f",
+      "version": "3.0.303.0.WNKCNXM",
+      "type": "plus",
+      "date": "2026-06-17T17:45:59+00:00",
+      "download_link": null,
+      "changelog_link": "https://telegra.ph/TURBO-OS-PLUS-30-V21-12-14",
+      "price": 500,
+      "device_ids": [
+        "poco_x5_pro_5g"
+      ],
+      "screenshot_post_id": null,
+      "plus_date": "16.06.26",
+      "discount_price": 250,
+      "discount_condition": "02.06.26"
+    },
+    {
+      "id": "rom_44330d2d4c88",
+      "version": "3.0.303.0.WNKCNXM",
+      "type": "plus",
+      "date": "2026-06-17T17:45:59+00:00",
+      "download_link": null,
+      "changelog_link": "https://telegra.ph/TURBO-OS-PLUS-30-V21-12-14",
+      "price": 500,
+      "device_ids": [
+        "poco_f4"
+      ],
+      "screenshot_post_id": null,
+      "plus_date": "16.06.26",
+      "discount_price": 250,
+      "discount_condition": "02.06.26"
+    },
+    {
+      "id": "rom_389a613ea375",
+      "version": "3.0.303.0.WNKCNXM",
+      "type": "plus",
+      "date": "2026-06-17T17:45:59+00:00",
+      "download_link": null,
+      "changelog_link": "https://telegra.ph/TURBO-OS-PLUS-30-V21-12-14",
+      "price": 500,
+      "device_ids": [
+        "redmi_note_12_4g"
+      ],
+      "screenshot_post_id": null,
+      "plus_date": "16.06.26",
+      "discount_price": 250,
+      "discount_condition": "02.06.26"
+    },
+    {
+      "id": "rom_f2b3bbc80ec3",
+      "version": "3.0.303.0.WNKCNXM",
+      "type": "plus",
+      "date": "2026-06-17T17:45:59+00:00",
+      "download_link": null,
+      "changelog_link": "https://telegra.ph/TURBO-OS-PLUS-30-V21-12-14",
+      "price": 500,
+      "device_ids": [
+        "redmi_note_11_pro_5g"
+      ],
+      "screenshot_post_id": null,
+      "plus_date": "16.06.26",
+      "discount_price": 250,
+      "discount_condition": "02.06.26"
+    },
+    {
+      "id": "rom_1661f5d6575f",
+      "version": "3.0.303.0",
+      "type": "plus",
+      "date": "2026-06-17T17:45:59+00:00",
+      "download_link": null,
+      "changelog_link": "https://telegra.ph/TURBO-OS-PLUS-30-V21-12-14",
+      "price": 500,
+      "device_ids": [
+        "mi_10"
+      ],
+      "screenshot_post_id": null,
+      "plus_date": "16.06.26",
+      "discount_price": 250,
+      "discount_condition": "02.06.26"
+    },
+    {
+      "id": "rom_ff1784f59572",
+      "version": "3.0.313.0.WBLCNXM",
+      "type": "free",
+      "date": "2026-06-16T16:31:10+00:00",
+      "download_link": "https://pixeldrain.com/u/TUeHFELN",
+      "changelog_link": "https://telegra.ph/TURBO-OS-303130WBLCNXM-06-07",
+      "price": null,
+      "device_ids": [
+        "xiaomi_17_pro"
+      ],
+      "screenshot_post_id": null
+    },
+    {
+      "id": "rom_44a14c862934",
+      "version": "3.0.304.0.WPKCNXM",
+      "type": "plus",
+      "date": "2026-06-02T19:19:52+00:00",
+      "download_link": null,
+      "changelog_link": null,
+      "price": null,
+      "device_ids": [
+        "poco_f8_pro"
+      ],
+      "screenshot_post_id": null,
+      "plus_date": "02.06.26"
+    },
+    {
+      "id": "rom_473ca4befa4d",
+      "version": "3.0.302.0.WOCCNXM",
+      "type": "plus",
+      "date": "2026-06-02T19:19:52+00:00",
+      "download_link": null,
+      "changelog_link": null,
+      "price": null,
+      "device_ids": [
+        "xiaomi_15"
+      ],
+      "screenshot_post_id": null,
+      "plus_date": "02.06.26"
+    },
+    {
+      "id": "rom_6838fc570408",
+      "version": "3.0.303.0",
+      "type": "plus",
+      "date": "2026-06-02T19:19:52+00:00",
+      "download_link": null,
+      "changelog_link": null,
+      "price": null,
+      "device_ids": [
+        "poco_x3_pro"
+      ],
+      "screenshot_post_id": null,
+      "plus_date": "02.06.26"
+    },
+    {
+      "id": "rom_934c90a48669",
+      "version": "3.0.303.0",
+      "type": "plus",
+      "date": "2026-06-02T19:19:52+00:00",
+      "download_link": null,
+      "changelog_link": null,
+      "price": 500,
+      "device_ids": [
+        "redmi_note_10_pro"
+      ],
+      "screenshot_post_id": null,
+      "plus_date": "02.06.26",
+      "discount_price": null,
+      "discount_condition": null
+    },
+    {
+      "id": "rom_6bdb51b713b9",
+      "version": "3.0.303.0.WOKCNXM",
+      "type": "free",
+      "date": "2026-05-31T15:22:13+00:00",
+      "download_link": "https://pixeldrain.com/u/TeqSpoRE",
+      "changelog_link": "https://telegra.ph/TURBO-OS-303030WOPCNXM-05-17",
+      "price": null,
+      "device_ids": [
+        "poco_f7_pro"
+      ],
+      "screenshot_post_id": null
+    },
+    {
+      "id": "rom_420edda489df",
+      "version": "3.0.303.0.WPMCNXM",
+      "type": "free",
+      "date": "2026-05-31T15:22:13+00:00",
+      "download_link": "https://pixeldrain.com/u/tKwWAV5A",
+      "changelog_link": "https://telegra.ph/TURBO-OS-303030WOPCNXM-05-17",
+      "price": null,
+      "device_ids": [
+        "poco_f8_ultra"
+      ],
+      "screenshot_post_id": null
+    },
+    {
+      "id": "rom_b56f26beed3d",
+      "version": null,
+      "type": "plus",
+      "date": "2026-05-19T18:35:01+00:00",
+      "download_link": null,
+      "changelog_link": null,
+      "price": null,
+      "device_ids": [
+        "poco_f7_ultra"
+      ],
+      "screenshot_post_id": null,
+      "plus_date": "17.05.26"
+    },
+    {
+      "id": "rom_61ba2060a673",
+      "version": null,
+      "type": "plus",
+      "date": "2026-05-19T18:35:01+00:00",
+      "download_link": null,
+      "changelog_link": null,
+      "price": null,
+      "device_ids": [
+        "poco_f7_pro"
+      ],
+      "screenshot_post_id": null,
+      "plus_date": "17.05.26"
+    },
+    {
+      "id": "rom_2517c57e8a5a",
+      "version": null,
+      "type": "plus",
+      "date": "2026-05-19T18:35:01+00:00",
+      "download_link": null,
+      "changelog_link": null,
+      "price": null,
+      "device_ids": [
+        "xiaomi_13_pro"
+      ],
+      "screenshot_post_id": null,
+      "plus_date": "17.05.26"
+    },
+    {
+      "id": "rom_100cea28e4df",
+      "version": null,
+      "type": "plus",
+      "date": "2026-05-19T18:35:01+00:00",
+      "download_link": null,
+      "changelog_link": null,
+      "price": null,
+      "device_ids": [
+        "xiaomi_12_pro"
+      ],
+      "screenshot_post_id": null,
+      "plus_date": "17.05.26"
+    },
+    {
+      "id": "rom_8a05a65f1020",
+      "version": null,
+      "type": "plus",
+      "date": "2026-05-19T18:35:01+00:00",
+      "download_link": null,
+      "changelog_link": null,
+      "price": null,
+      "device_ids": [
+        "xiaomi_12"
+      ],
+      "screenshot_post_id": null,
+      "plus_date": "17.05.26"
+    },
+    {
+      "id": "rom_d0138623b54f",
+      "version": null,
+      "type": "plus",
+      "date": "2026-05-19T18:35:01+00:00",
+      "download_link": null,
+      "changelog_link": null,
+      "price": null,
+      "device_ids": [
+        "xiaomi_12s_ultra"
+      ],
+      "screenshot_post_id": null,
+      "plus_date": "17.05.26"
+    },
+    {
+      "id": "rom_711f6ecaa872",
+      "version": null,
+      "type": "plus",
+      "date": "2026-05-19T18:35:01+00:00",
+      "download_link": null,
+      "changelog_link": null,
+      "price": null,
+      "device_ids": [
+        "xiaomi_12_lite"
+      ],
+      "screenshot_post_id": null,
+      "plus_date": "17.05.26"
+    },
+    {
+      "id": "rom_c433c06bde94",
+      "version": null,
+      "type": "plus",
+      "date": "2026-05-19T18:35:01+00:00",
+      "download_link": null,
+      "changelog_link": null,
+      "price": null,
+      "device_ids": [
+        "poco_f5_pro"
+      ],
+      "screenshot_post_id": null,
+      "plus_date": "17.05.26"
+    },
+    {
+      "id": "rom_5f5c300002ea",
+      "version": null,
+      "type": "plus",
+      "date": "2026-05-19T18:35:01+00:00",
+      "download_link": null,
+      "changelog_link": null,
+      "price": null,
+      "device_ids": [
+        "poco_f5"
+      ],
+      "screenshot_post_id": null,
+      "plus_date": "17.05.26"
+    },
+    {
+      "id": "rom_1e64df74dfa4",
+      "version": null,
+      "type": "plus",
+      "date": "2026-05-19T18:35:01+00:00",
+      "download_link": null,
+      "changelog_link": null,
+      "price": null,
+      "device_ids": [
+        "poco_x5_pro_5g"
+      ],
+      "screenshot_post_id": null,
+      "plus_date": "17.05.26"
+    },
+    {
+      "id": "rom_7db34cd381ad",
+      "version": null,
+      "type": "plus",
+      "date": "2026-05-19T18:35:01+00:00",
+      "download_link": null,
+      "changelog_link": null,
+      "price": null,
+      "device_ids": [
+        "poco_f4"
+      ],
+      "screenshot_post_id": null,
+      "plus_date": "17.05.26"
+    },
+    {
+      "id": "rom_ca5811bb07ed",
+      "version": null,
+      "type": "plus",
+      "date": "2026-05-19T18:35:01+00:00",
+      "download_link": null,
+      "changelog_link": null,
+      "price": null,
+      "device_ids": [
+        "redmi_note_12_4g"
+      ],
+      "screenshot_post_id": null,
+      "plus_date": "17.05.26"
+    },
+    {
+      "id": "rom_a544fdd3fef1",
+      "version": null,
+      "type": "plus",
+      "date": "2026-05-19T18:35:01+00:00",
+      "download_link": null,
+      "changelog_link": null,
+      "price": null,
+      "device_ids": [
+        "redmi_note_11_pro_5g"
+      ],
+      "screenshot_post_id": null,
+      "plus_date": "17.05.26"
+    },
+    {
+      "id": "rom_31626e157c11",
+      "version": null,
+      "type": "plus",
+      "date": "2026-05-19T18:35:01+00:00",
+      "download_link": null,
+      "changelog_link": null,
+      "price": 500,
+      "device_ids": [
+        "poco_x3_pro"
+      ],
+      "screenshot_post_id": null,
+      "plus_date": "17.05.26",
+      "discount_price": null,
+      "discount_condition": null
+    },
+    {
+      "id": "rom_48046bdf0f65",
+      "version": null,
+      "type": "plus",
+      "date": "2026-05-19T18:35:01+00:00",
+      "download_link": null,
+      "changelog_link": null,
+      "price": 500,
+      "device_ids": [
+        "redmi_note_10_pro"
+      ],
+      "screenshot_post_id": null,
+      "plus_date": "17.05.26",
+      "discount_price": null,
+      "discount_condition": null
+    },
+    {
+      "id": "rom_9a6d32a85141",
+      "version": null,
+      "type": "plus",
+      "date": "2026-05-19T18:35:01+00:00",
+      "download_link": null,
+      "changelog_link": null,
+      "price": 500,
+      "device_ids": [
+        "poco_f4_gt"
+      ],
+      "screenshot_post_id": null,
+      "plus_date": "17.05.26",
+      "discount_price": null,
+      "discount_condition": null
+    },
+    {
+      "id": "rom_283de2846c57",
+      "version": null,
+      "type": "plus",
+      "date": "2026-05-19T18:35:01+00:00",
+      "download_link": null,
+      "changelog_link": null,
+      "price": 500,
+      "device_ids": [
+        "poco_f3"
+      ],
+      "screenshot_post_id": null,
+      "plus_date": "17.05.26",
+      "discount_price": null,
+      "discount_condition": null
+    },
+    {
+      "id": "rom_f4b923a799dd",
+      "version": null,
+      "type": "plus",
+      "date": "2026-05-19T18:35:01+00:00",
+      "download_link": null,
+      "changelog_link": null,
+      "price": 500,
+      "device_ids": [
+        "mi_10t_pro"
+      ],
+      "screenshot_post_id": null,
+      "plus_date": "17.05.26",
+      "discount_price": null,
+      "discount_condition": null
+    },
+    {
+      "id": "rom_73365664f7b5",
+      "version": null,
+      "type": "plus",
+      "date": "2026-05-19T18:35:01+00:00",
+      "download_link": null,
+      "changelog_link": null,
+      "price": 500,
+      "device_ids": [
+        "mi_10"
+      ],
+      "screenshot_post_id": null,
+      "plus_date": "17.05.26",
+      "discount_price": null,
+      "discount_condition": null
+    },
+    {
+      "id": "rom_283778431305",
+      "version": "3.0.304.0.WPKCNXM",
+      "type": "free",
+      "date": "2026-05-17T17:24:42+00:00",
+      "download_link": "https://pixeldrain.com/u/pHu4hNny",
+      "changelog_link": "https://telegra.ph/TURBO-OS-303040WPKCNXM-05-17",
+      "price": null,
+      "device_ids": [
+        "poco_f8_pro"
+      ],
+      "screenshot_post_id": null
+    },
+    {
+      "id": "rom_7bf25c754752",
+      "version": "3.0.303.0.WOPCNXM",
+      "type": "free",
+      "date": "2026-05-17T17:24:42+00:00",
+      "download_link": "https://pixeldrain.com/u/riVj8PZB",
+      "changelog_link": "https://telegra.ph/TURBO-OS-303030WOPCNXM-05-17",
+      "price": null,
+      "device_ids": [
+        "redmi_note_14_pro_plus_5g"
+      ],
+      "screenshot_post_id": null
+    },
+    {
+      "id": "rom_1c47429f39f7",
+      "version": "3.0.303.0.WNKCNXM",
+      "type": "free",
+      "date": "2026-05-15T16:09:08+00:00",
+      "download_link": "https://pixeldrain.com/u/zkHuHcew",
+      "changelog_link": "https://telegra.ph/TURBO-OS-3040-stabilnaya-12-13",
+      "price": null,
+      "device_ids": [
+        "poco_f6_pro"
+      ],
+      "screenshot_post_id": null
+    },
+    {
+      "id": "rom_659acbad0c95",
+      "version": "3.0.303.0.WNKCNXM",
+      "type": "free",
+      "date": "2026-05-15T16:09:08+00:00",
+      "download_link": "https://pixeldrain.com/u/ynwPWhAm",
+      "changelog_link": null,
+      "price": null,
+      "device_ids": [
+        "xiaomi_13_pro"
+      ],
+      "screenshot_post_id": null
+    },
+    {
+      "id": "rom_bddae6b5a656",
+      "version": "3.0.303.0.WNKCNXM",
+      "type": "free",
+      "date": "2026-05-15T16:09:08+00:00",
+      "download_link": "https://pixeldrain.com/u/e8dz6aBn",
+      "changelog_link": null,
+      "price": null,
+      "device_ids": [
+        "xiaomi_12_pro"
+      ],
+      "screenshot_post_id": null
+    },
+    {
+      "id": "rom_5d9e8f664656",
+      "version": "3.0.303.0.WNKCNXM",
+      "type": "free",
+      "date": "2026-05-15T16:09:08+00:00",
+      "download_link": "https://pixeldrain.com/u/eKAESU12",
+      "changelog_link": null,
+      "price": null,
+      "device_ids": [
+        "xiaomi_12s_ultra"
+      ],
+      "screenshot_post_id": null
+    },
+    {
+      "id": "rom_c0a78802463a",
+      "version": "3.0.303.0.WNKCNXM",
+      "type": "free",
+      "date": "2026-05-15T16:09:08+00:00",
+      "download_link": "https://pixeldrain.com/u/AjrZXZJ5",
+      "changelog_link": null,
+      "price": null,
+      "device_ids": [
+        "xiaomi_12"
+      ],
+      "screenshot_post_id": null
+    },
+    {
+      "id": "rom_a94e17e91c29",
+      "version": "3.0.303.0.WNKCNXM",
+      "type": "free",
+      "date": "2026-05-15T16:09:08+00:00",
+      "download_link": "https://pixeldrain.com/u/i2FA2Qhk",
+      "changelog_link": null,
+      "price": null,
+      "device_ids": [
+        "xiaomi_12_lite"
+      ],
+      "screenshot_post_id": null
+    },
+    {
+      "id": "rom_111869fabb82",
+      "version": "3.0.303.0.WNKCNXM",
+      "type": "free",
+      "date": "2026-05-15T16:09:08+00:00",
+      "download_link": "https://pixeldrain.com/u/auvNgRzX",
+      "changelog_link": null,
+      "price": null,
+      "device_ids": [
+        "poco_f7_ultra"
+      ],
+      "screenshot_post_id": null
+    },
+    {
+      "id": "rom_aa29ee034c16",
+      "version": "3.0.303.0.WNKCNXM",
+      "type": "free",
+      "date": "2026-05-15T16:09:08+00:00",
+      "download_link": "https://pixeldrain.com/u/qRrxWLAc",
+      "changelog_link": null,
+      "price": null,
+      "device_ids": [
+        "poco_f7_pro"
+      ],
+      "screenshot_post_id": null
+    },
+    {
+      "id": "rom_fd2196684505",
+      "version": "3.0.303.0.WNKCNXM",
+      "type": "free",
+      "date": "2026-05-15T16:09:08+00:00",
+      "download_link": "https://pixeldrain.com/u/jEo5r1H5",
+      "changelog_link": null,
+      "price": null,
+      "device_ids": [
+        "poco_f5_pro"
+      ],
+      "screenshot_post_id": null
+    },
+    {
+      "id": "rom_517596e20fbf",
+      "version": "3.0.303.0.WNKCNXM",
+      "type": "free",
+      "date": "2026-05-15T16:09:08+00:00",
+      "download_link": "https://pixeldrain.com/u/jUgC6rKr",
+      "changelog_link": null,
+      "price": null,
+      "device_ids": [
+        "poco_f5"
+      ],
+      "screenshot_post_id": null
+    },
+    {
+      "id": "rom_3db472893e67",
+      "version": "3.0.303.0.WNKCNXM",
+      "type": "free",
+      "date": "2026-05-15T16:09:08+00:00",
+      "download_link": "https://pixeldrain.com/u/S1JWbzne",
+      "changelog_link": null,
+      "price": null,
+      "device_ids": [
+        "poco_f4"
+      ],
+      "screenshot_post_id": null
+    },
+    {
+      "id": "rom_7b9676a66d04",
+      "version": "3.0.303.0.WNKCNXM",
+      "type": "free",
+      "date": "2026-05-15T16:09:08+00:00",
+      "download_link": "https://pixeldrain.com/u/n6vFMVuT",
+      "changelog_link": null,
+      "price": null,
+      "device_ids": [
+        "poco_x5_pro_5g"
+      ],
+      "screenshot_post_id": null
+    },
+    {
+      "id": "rom_5ea38a212af8",
+      "version": "3.0.303.0.WNKCNXM",
+      "type": "free",
+      "date": "2026-05-15T16:09:08+00:00",
+      "download_link": "https://pixeldrain.com/u/1CRJRDia",
+      "changelog_link": null,
+      "price": null,
+      "device_ids": [
+        "redmi_note_12_4g"
+      ],
+      "screenshot_post_id": null
+    },
+    {
+      "id": "rom_881604b71256",
+      "version": "3.0.303.0.WNKCNXM",
+      "type": "free",
+      "date": "2026-05-15T16:09:08+00:00",
+      "download_link": "https://pixeldrain.com/u/eDbR9daM",
+      "changelog_link": null,
+      "price": null,
+      "device_ids": [
+        "redmi_note_11_pro_5g"
+      ],
+      "screenshot_post_id": null
+    },
+    {
+      "id": "rom_1f9b23c24f9a",
+      "version": "3.0.303.0.WOLCNXM",
+      "type": "free",
+      "date": "2026-05-15T15:52:37+00:00",
+      "download_link": "https://pixeldrain.com/u/5FYViLf2",
+      "changelog_link": "https://telegra.ph/TURBO-OS-303030WOLCNXM-05-15",
+      "price": null,
+      "device_ids": [
+        "poco_f7"
+      ],
+      "screenshot_post_id": null
+    },
+    {
+      "id": "rom_6576aa965a0f",
+      "version": null,
+      "type": "plus",
+      "date": "2026-05-02T15:19:03+00:00",
+      "download_link": null,
+      "changelog_link": null,
+      "price": null,
+      "device_ids": [
+        "xiaomi_15"
+      ],
+      "screenshot_post_id": null
+    },
+    {
+      "id": "rom_bed526109eeb",
+      "version": null,
+      "type": "plus",
+      "date": "2026-05-02T15:19:03+00:00",
+      "download_link": null,
+      "changelog_link": null,
+      "price": null,
+      "device_ids": [
+        "xiaomi_14"
+      ],
+      "screenshot_post_id": null
+    },
+    {
+      "id": "rom_c6912edeb745",
+      "version": null,
+      "type": "plus",
+      "date": "2026-05-02T15:19:03+00:00",
+      "download_link": null,
+      "changelog_link": null,
+      "price": null,
+      "device_ids": [
+        "poco_f7"
+      ],
+      "screenshot_post_id": null
+    },
+    {
+      "id": "rom_6675eec49495",
+      "version": null,
+      "type": "plus",
+      "date": "2026-04-08T17:32:29+00:00",
+      "download_link": null,
+      "changelog_link": null,
+      "price": null,
+      "device_ids": [
+        "poco_f6_pro"
+      ],
+      "screenshot_post_id": null
+    },
+    {
+      "id": "rom_18acf1f60b3d",
+      "version": "3.0.9.0",
+      "type": "free",
+      "date": "2026-03-25T16:23:04+00:00",
+      "download_link": "https://pixeldrain.com/u/qxnBXYe3",
+      "changelog_link": "https://telegra.ph/TURBO-OS-3040-stabilnaya-12-13",
+      "price": null,
+      "device_ids": [
+        "redmi_note_10_pro"
+      ],
+      "screenshot_post_id": null
+    },
+    {
+      "id": "rom_d2b8cf58294c",
+      "version": "3.0.9.0",
+      "type": "free",
+      "date": "2026-03-25T16:23:04+00:00",
+      "download_link": null,
+      "changelog_link": null,
+      "price": null,
+      "device_ids": [
+        "xiaomi_15"
+      ],
+      "screenshot_post_id": null
+    },
+    {
+      "id": "rom_9da29122b266",
+      "version": "3.0.9.0",
+      "type": "free",
+      "date": "2026-03-25T16:23:04+00:00",
+      "download_link": "https://pixeldrain.com/u/VEMpDPR9",
+      "changelog_link": "https://telegra.ph/TURBO-OS-3040-stabilnaya-12-13",
+      "price": null,
+      "device_ids": [
+        "xiaomi_14"
+      ],
+      "screenshot_post_id": null
+    },
+    {
+      "id": "rom_b674b7683d5f",
+      "version": "3.0.9.0",
+      "type": "free",
+      "date": "2026-03-25T16:23:04+00:00",
+      "download_link": null,
+      "changelog_link": null,
+      "price": null,
+      "device_ids": [
+        "xiaomi_13_pro"
+      ],
+      "screenshot_post_id": null
+    },
+    {
+      "id": "rom_141008606ff9",
+      "version": "3.0.9.0",
+      "type": "free",
+      "date": "2026-03-25T16:23:04+00:00",
+      "download_link": null,
+      "changelog_link": null,
+      "price": null,
+      "device_ids": [
+        "xiaomi_12_pro"
+      ],
+      "screenshot_post_id": null
+    },
+    {
+      "id": "rom_2cf5de11b74f",
+      "version": "3.0.303.0.WPMCNXM",
+      "type": "plus",
+      "date": "2026-06-16T00:00:00",
+      "download_link": null,
+      "changelog_link": "https://telegra.ph/TURBO-OS-PLUS-30-V21-12-14",
+      "price": 500,
+      "device_ids": [
+        "poco_f8_ultra"
+      ],
+      "screenshot_post_id": null,
+      "plus_date": "16.06.26",
+      "discount_price": 250,
+      "discount_condition": "02.06.26"
+    },
+    {
+      "id": "rom_a68eb4535044",
+      "version": "3.0.303.0.WOCCNXM",
+      "type": "free",
+      "date": "2026-06-18T00:00:00",
+      "download_link": "https://pixeldrain.com/u/8F5v5bo7",
+      "changelog_link": "https://telegra.ph/TURBO-OS-303030WOCCNXM-06-16",
+      "price": null,
+      "device_ids": [
+        "xiaomi_15"
+      ],
+      "screenshot_post_id": null
+    },
+    {
+      "id": "rom_a65bd7bf0205",
+      "version": "3.0.305.0.WPKCNXM",
+      "type": "free",
+      "date": "2026-06-18T00:00:00",
+      "download_link": "https://pixeldrain.com/u/xEyftHs5",
+      "changelog_link": "https://telegra.ph/TURBO-OS-303040WPKCNXM-05-17",
+      "price": null,
+      "device_ids": [
+        "poco_f8_pro"
+      ],
+      "screenshot_post_id": null
+    },
+    {
+      "id": "rom_7266809faec7",
+      "version": "3.0.303.0.WNPCNXM",
+      "type": "free",
+      "date": "2026-06-18T00:00:00",
+      "download_link": "https://pixeldrain.com/u/yHm9oiFz",
+      "changelog_link": "https://telegra.ph/TURBO-OS-303030WNPCNXM-06-15",
+      "price": null,
+      "device_ids": [
+        "poco_f6"
+      ],
+      "screenshot_post_id": null
+    },
+    {
+      "id": "rom_b3c7ed0b5ca5",
+      "version": "3.0.313.0.WPRCNXM",
+      "type": "free",
+      "date": "2026-06-18T00:00:00",
+      "download_link": "https://pixeldrain.com/u/Kgrcgw1L",
+      "changelog_link": "https://telegra.ph/TURBO-OS-303100WPRCNXM-06-07",
+      "price": null,
+      "device_ids": [
+        "poco_m8_pro_5g"
+      ],
+      "screenshot_post_id": null
+    },
+    {
+      "id": "rom_9f2cb1e69cc6",
+      "version": "3.0.9.0",
+      "type": "plus",
+      "date": "2026-05-17T00:00:00",
+      "download_link": null,
+      "changelog_link": "https://telegra.ph/TURBO-OS-PLUS-30-V21-12-14",
+      "price": 500,
+      "discount_price": 250,
+      "discount_condition": "V24.5",
+      "device_ids": [
+        "poco_f4_gt"
+      ],
+      "screenshot_post_id": null,
+      "plus_date": "17.05.26"
+    },
+    {
+      "id": "rom_7808c3570820",
+      "version": "3.0.9.0",
+      "type": "plus",
+      "date": "2026-05-17T00:00:00",
+      "download_link": null,
+      "changelog_link": "https://telegra.ph/TURBO-OS-PLUS-30-V21-12-14",
+      "price": 500,
+      "discount_price": 250,
+      "discount_condition": "V24.5",
+      "device_ids": [
+        "poco_f3"
+      ],
+      "screenshot_post_id": null,
+      "plus_date": "17.05.26"
+    },
+    {
+      "id": "rom_295baf5eb6b6",
+      "version": "3.0.9.0",
+      "type": "plus",
+      "date": "2026-05-17T00:00:00",
+      "download_link": null,
+      "changelog_link": "https://telegra.ph/TURBO-OS-PLUS-30-V21-12-14",
+      "price": 500,
+      "discount_price": 250,
+      "discount_condition": "V24.5",
+      "device_ids": [
+        "mi_10t_pro"
+      ],
+      "screenshot_post_id": null,
+      "plus_date": "17.05.26"
+    },
+    {
+      "id": "rom_35924bbc5ea3",
+      "version": "3.0.9.0",
+      "type": "free",
+      "date": "2026-06-18T00:00:00",
+      "download_link": "https://pixeldrain.com/u/1D3fkFH6",
+      "changelog_link": "https://telegra.ph/TURBO-OS-3040-stabilnaya-12-13",
+      "price": null,
+      "device_ids": [
+        "poco_x3_pro"
+      ],
+      "screenshot_post_id": null
+    },
+    {
+      "id": "rom_8edf40886a61",
+      "version": "3.0.9.0",
+      "type": "free",
+      "date": "2026-06-18T00:00:00",
+      "download_link": "https://pixeldrain.com/u/UzGA9rUt",
+      "changelog_link": "https://telegra.ph/TURBO-OS-3040-stabilnaya-12-13",
+      "price": null,
+      "device_ids": [
+        "poco_f4_gt"
+      ],
+      "screenshot_post_id": null
+    },
+    {
+      "id": "rom_7909b15aa244",
+      "version": "3.0.9.0",
+      "type": "free",
+      "date": "2026-06-18T00:00:00",
+      "download_link": "https://pixeldrain.com/u/DtN269dc",
+      "changelog_link": "https://telegra.ph/TURBO-OS-3040-stabilnaya-12-13",
+      "price": null,
+      "device_ids": [
+        "poco_f3"
+      ],
+      "screenshot_post_id": null
+    },
+    {
+      "id": "rom_85b5c92d2d48",
+      "version": "3.0.9.0",
+      "type": "free",
+      "date": "2026-06-18T00:00:00",
+      "download_link": "https://pixeldrain.com/u/EqovWNKF",
+      "changelog_link": "https://telegra.ph/TURBO-OS-3040-stabilnaya-12-13",
+      "price": null,
+      "device_ids": [
+        "mi_10t_pro"
+      ],
+      "screenshot_post_id": null
+    },
+    {
+      "id": "rom_2439e6c41354",
+      "version": "3.0.9.0",
+      "type": "free",
+      "date": "2026-06-18T00:00:00",
+      "download_link": "https://pixeldrain.com/u/UXT4byTc",
+      "changelog_link": "https://telegra.ph/TURBO-OS-3040-stabilnaya-12-13",
+      "price": null,
+      "device_ids": [
+        "mi_10"
+      ],
+      "screenshot_post_id": null
+    },
+    {
+      "id": "rom_c48ceba2094f",
+      "version": "3.0.304.0",
+      "type": "free",
+      "date": "2026-06-18T00:00:00",
+      "download_link": "https://pixeldrain.com/u/56rXYK5S",
+      "changelog_link": "https://telegra.ph/TURBO-OS-3040-stabilnaya-12-13",
+      "price": null,
+      "device_ids": [
+        "xiaomi_14_ultra"
+      ],
+      "screenshot_post_id": null
+    }
+  ],
+  "device_roms": {
+    "xiaomi_17_pro": {
+      "free_rom_id": "rom_ff1784f59572",
+      "plus_rom_id": "rom_723b492029d3",
+      "manual": {
+        "notes": "",
+        "archive": []
+      },
+      "plus_date": "16.06.26",
+      "plus_version": "3.0.313.0.WBLCNXM",
+      "free_version": "3.0.313.0.WBLCNXM"
+    },
+    "xiaomi_15": {
+      "free_rom_id": "rom_a68eb4535044",
+      "plus_rom_id": "rom_6841218190fc",
+      "manual": {
+        "notes": "",
+        "archive": []
+      },
+      "plus_date": "16.06.26",
+      "plus_version": "3.0.303.0.WOCCNXM",
+      "free_version": "3.0.303.0.WOCCNXM"
+    },
+    "poco_f8_pro": {
+      "free_rom_id": "rom_a65bd7bf0205",
+      "plus_rom_id": "rom_f2f0576a5863",
+      "manual": {
+        "notes": "",
+        "archive": []
+      },
+      "plus_date": "16.06.26",
+      "plus_version": "3.0.305.0.WPKCNXM",
+      "free_version": "3.0.305.0.WPKCNXM"
+    },
+    "poco_f6": {
+      "free_rom_id": "rom_7266809faec7",
+      "plus_rom_id": "rom_364dd3931b1e",
+      "manual": {
+        "notes": "",
+        "archive": []
+      },
+      "plus_date": "16.06.26",
+      "plus_version": "3.0.303.0.WNPCNXM",
+      "free_version": "3.0.303.0.WNPCNXM"
+    },
+    "poco_m8_pro_5g": {
+      "free_rom_id": "rom_b3c7ed0b5ca5",
+      "plus_rom_id": "rom_eecae8f516da",
+      "manual": {
+        "notes": "",
+        "archive": []
+      },
+      "plus_date": "16.06.26",
+      "plus_version": "3.0.313.0.WPRCNXM",
+      "free_version": "3.0.313.0.WPRCNXM"
+    },
+    "poco_f7_pro": {
+      "free_rom_id": "rom_6bdb51b713b9",
+      "plus_rom_id": "rom_2c9ad62aeee4",
+      "manual": {
+        "notes": "",
+        "archive": []
+      },
+      "plus_date": "16.06.26",
+      "plus_version": "3.0.303.0.WOKCNXM",
+      "free_version": "3.0.303.0.WOKCNXM"
+    },
+    "poco_f7": {
+      "free_rom_id": "rom_1f9b23c24f9a",
+      "plus_rom_id": "rom_c0c44a8659c5",
+      "manual": {
+        "notes": "",
+        "archive": []
+      },
+      "plus_date": "16.06.26",
+      "plus_version": "3.0.303.0.WOLCNXM",
+      "free_version": "3.0.303.0.WOLCNXM"
+    },
+    "poco_f6_pro": {
+      "free_rom_id": "rom_1c47429f39f7",
+      "plus_rom_id": "rom_519925e80f88",
+      "manual": {
+        "notes": "",
+        "archive": []
+      },
+      "plus_date": "16.06.26",
+      "plus_version": "3.0.303.0.WNKCNXM",
+      "free_version": "3.0.303.0.WNKCNXM"
+    },
+    "xiaomi_14_ultra": {
+      "free_rom_id": "rom_c48ceba2094f",
+      "plus_rom_id": "rom_fb414f599235",
+      "manual": {
+        "notes": "",
+        "archive": []
+      },
+      "plus_date": "16.06.26",
+      "plus_version": "3.0.304.0.WNACNXM",
+      "free_version": "3.0.304.0"
+    },
+    "redmi_note_14_pro_plus_5g": {
+      "free_rom_id": "rom_7bf25c754752",
+      "plus_rom_id": "rom_8f6f11bdb937",
+      "manual": {
+        "notes": "",
+        "archive": []
+      },
+      "plus_date": "16.06.26",
+      "plus_version": "3.0.303.0.WOPCNXM",
+      "free_version": "3.0.303.0.WOPCNXM"
+    },
+    "xiaomi_14": {
+      "free_rom_id": "rom_9da29122b266",
+      "plus_rom_id": "rom_6896c8038387",
+      "manual": {
+        "notes": "",
+        "archive": []
+      },
+      "plus_date": "16.06.26",
+      "plus_version": "3.0.302.0.WNCCNXM",
+      "free_version": "3.0.9.0"
+    },
+    "poco_x3_pro": {
+      "free_rom_id": "rom_35924bbc5ea3",
+      "plus_rom_id": "rom_82ecd910698f",
+      "manual": {
+        "notes": "",
+        "archive": []
+      },
+      "plus_date": "16.06.26",
+      "plus_version": "3.0.303.0.WNKCNXM",
+      "free_version": "3.0.9.0"
+    },
+    "redmi_note_10_pro": {
+      "free_rom_id": "rom_18acf1f60b3d",
+      "plus_rom_id": "rom_6bfa83096a3f",
+      "manual": {
+        "notes": "",
+        "archive": []
+      },
+      "plus_date": "16.06.26",
+      "plus_version": "3.0.303.0.WNKCNXM",
+      "free_version": "3.0.9.0"
+    },
+    "poco_f7_ultra": {
+      "free_rom_id": "rom_111869fabb82",
+      "plus_rom_id": "rom_04d7c8cb16be",
+      "manual": {
+        "notes": "",
+        "archive": []
+      },
+      "plus_date": "16.06.26",
+      "plus_version": "3.0.303.0.WNKCNXM",
+      "free_version": "3.0.303.0.WNKCNXM"
+    },
+    "xiaomi_13_pro": {
+      "free_rom_id": "rom_659acbad0c95",
+      "plus_rom_id": "rom_fff98f4248b8",
+      "manual": {
+        "notes": "",
+        "archive": []
+      },
+      "plus_date": "16.06.26",
+      "plus_version": "3.0.303.0.WNKCNXM",
+      "free_version": "3.0.303.0.WNKCNXM"
+    },
+    "xiaomi_12_pro": {
+      "free_rom_id": "rom_bddae6b5a656",
+      "plus_rom_id": "rom_241834f39aa6",
+      "manual": {
+        "notes": "",
+        "archive": []
+      },
+      "plus_date": "16.06.26",
+      "plus_version": "3.0.303.0.WNKCNXM",
+      "free_version": "3.0.303.0.WNKCNXM"
+    },
+    "xiaomi_12": {
+      "free_rom_id": "rom_c0a78802463a",
+      "plus_rom_id": "rom_ac2b671bfbde",
+      "manual": {
+        "notes": "",
+        "archive": []
+      },
+      "plus_date": "16.06.26",
+      "plus_version": "3.0.303.0.WNKCNXM",
+      "free_version": "3.0.303.0.WNKCNXM"
+    },
+    "xiaomi_12s_ultra": {
+      "free_rom_id": "rom_5d9e8f664656",
+      "plus_rom_id": "rom_965f4e5c616d",
+      "manual": {
+        "notes": "",
+        "archive": []
+      },
+      "plus_date": "16.06.26",
+      "plus_version": "3.0.303.0.WNKCNXM",
+      "free_version": "3.0.303.0.WNKCNXM"
+    },
+    "xiaomi_12_lite": {
+      "free_rom_id": "rom_a94e17e91c29",
+      "plus_rom_id": "rom_5bec8ab80d30",
+      "manual": {
+        "notes": "",
+        "archive": []
+      },
+      "plus_date": "16.06.26",
+      "plus_version": "3.0.303.0.WNKCNXM",
+      "free_version": "3.0.303.0.WNKCNXM"
+    },
+    "poco_f5_pro": {
+      "free_rom_id": "rom_fd2196684505",
+      "plus_rom_id": "rom_eb5f8c716a70",
+      "manual": {
+        "notes": "",
+        "archive": []
+      },
+      "plus_date": "16.06.26",
+      "plus_version": "3.0.303.0.WNKCNXM",
+      "free_version": "3.0.303.0.WNKCNXM"
+    },
+    "poco_f5": {
+      "free_rom_id": "rom_517596e20fbf",
+      "plus_rom_id": "rom_c35379d7cd22",
+      "manual": {
+        "notes": "",
+        "archive": []
+      },
+      "plus_date": "16.06.26",
+      "plus_version": "3.0.303.0.WNKCNXM",
+      "free_version": "3.0.303.0.WNKCNXM"
+    },
+    "poco_x5_pro_5g": {
+      "free_rom_id": "rom_7b9676a66d04",
+      "plus_rom_id": "rom_1034ac9d4c6f",
+      "manual": {
+        "notes": "",
+        "archive": []
+      },
+      "plus_date": "16.06.26",
+      "plus_version": "3.0.303.0.WNKCNXM",
+      "free_version": "3.0.303.0.WNKCNXM"
+    },
+    "poco_f4": {
+      "free_rom_id": "rom_3db472893e67",
+      "plus_rom_id": "rom_44330d2d4c88",
+      "manual": {
+        "notes": "",
+        "archive": []
+      },
+      "plus_date": "16.06.26",
+      "plus_version": "3.0.303.0.WNKCNXM",
+      "free_version": "3.0.303.0.WNKCNXM"
+    },
+    "redmi_note_12_4g": {
+      "free_rom_id": "rom_5ea38a212af8",
+      "plus_rom_id": "rom_389a613ea375",
+      "manual": {
+        "notes": "",
+        "archive": []
+      },
+      "plus_date": "16.06.26",
+      "plus_version": "3.0.303.0.WNKCNXM",
+      "free_version": "3.0.303.0.WNKCNXM"
+    },
+    "redmi_note_11_pro_5g": {
+      "free_rom_id": "rom_881604b71256",
+      "plus_rom_id": "rom_f2b3bbc80ec3",
+      "manual": {
+        "notes": "",
+        "archive": []
+      },
+      "plus_date": "16.06.26",
+      "plus_version": "3.0.303.0.WNKCNXM",
+      "free_version": "3.0.303.0.WNKCNXM"
+    },
+    "mi_10": {
+      "free_rom_id": "rom_2439e6c41354",
+      "plus_rom_id": "rom_1661f5d6575f",
+      "manual": {
+        "notes": "",
+        "archive": []
+      },
+      "plus_date": "16.06.26",
+      "plus_version": "3.0.303.0",
+      "free_version": "3.0.9.0"
+    },
+    "poco_f8_ultra": {
+      "free_rom_id": "rom_420edda489df",
+      "plus_rom_id": "rom_2cf5de11b74f",
+      "manual": {
+        "notes": "",
+        "archive": []
+      },
+      "free_version": "3.0.303.0.WPMCNXM",
+      "plus_date": "16.06.26",
+      "plus_version": "3.0.303.0.WPMCNXM"
+    },
+    "poco_f4_gt": {
+      "free_rom_id": "rom_8edf40886a61",
+      "plus_rom_id": "rom_9f2cb1e69cc6",
+      "manual": {
+        "notes": "",
+        "archive": []
+      },
+      "plus_date": "17.05.26",
+      "plus_version": "3.0.9.0",
+      "free_version": "3.0.9.0"
+    },
+    "poco_f3": {
+      "free_rom_id": "rom_7909b15aa244",
+      "plus_rom_id": "rom_7808c3570820",
+      "manual": {
+        "notes": "",
+        "archive": []
+      },
+      "plus_date": "17.05.26",
+      "plus_version": "3.0.9.0",
+      "free_version": "3.0.9.0"
+    },
+    "mi_10t_pro": {
+      "free_rom_id": "rom_85b5c92d2d48",
+      "plus_rom_id": "rom_295baf5eb6b6",
+      "manual": {
+        "notes": "",
+        "archive": []
+      },
+      "plus_date": "17.05.26",
+      "plus_version": "3.0.9.0",
+      "free_version": "3.0.9.0"
+    }
+  },
+  "screenshot_posts": {}
+}

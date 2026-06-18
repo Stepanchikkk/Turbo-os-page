@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TURBO OS - HyperOS Firmware Hub</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { background: #020617; }
+    .version-gradient-text {
+      background: linear-gradient(90deg, #2dd4bf, #fb923c);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .plus-gradient-text {
+      background: linear-gradient(90deg, #ef4444, #f97316, #eab308);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .plus-gradient-border {
+      border-image: linear-gradient(90deg, #ef4444, #f97316, #eab308) 1;
+    }
+    .plus-gradient-bg {
+      background: linear-gradient(90deg, rgba(239,68,68,0.1), rgba(249,115,22,0.1), rgba(234,179,8,0.1));
+    }
+    .search-glow:focus { box-shadow: 0 0 0 2px rgba(20,184,166,0.3); }
+    .filter-btn.active { background: rgba(20,184,166,0.15); color: #2dd4bf; border-color: rgba(20,184,166,0.3); }
+    .lang-btn.active { background: rgba(20,184,166,0.15); color: #2dd4bf; }
+    @keyframes fadeIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes modalIn { from { opacity:0; transform:scale(0.95); } to { opacity:1; transform:scale(1); } }
+    .device-card { animation: fadeIn 0.2s ease-out both; }
+    .modal-content:not(.hidden) .relative { animation: modalIn 0.2s ease-out; }
+    .no-results { display: none !important; }
+    .lang-content { display: none !important; }
+    .lang-content.active { display: block !important; }
+  </style>
+</head>
+<body class="min-h-screen text-slate-50 antialiased">
+  <!-- RU Content -->
+  <div class="lang-content active" data-lang="ru">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
+      <header class="mb-8">
+        <div class="relative overflow-hidden rounded-3xl bg-slate-900 border border-slate-700/30 p-5 sm:p-6 mb-6">
+          <div class="absolute inset-0 bg-gradient-to-r from-teal-500/5 via-transparent to-orange-500/5 pointer-events-none"></div>
+          <div class="relative z-10 flex items-center justify-between gap-2 sm:gap-3">
+            <img src="assets/images/turbo-logo.png" alt="TURBO OS" class="h-10 sm:h-24 object-contain shrink-0"/>
+            <div class="flex flex-col items-end gap-1 sm:gap-2 shrink-0 min-w-0">
+              <div class="flex items-center gap-2 sm:gap-3">
+                <div class="text-right min-w-0">
+                  <div class="text-slate-300 text-xs sm:text-lg font-semibold truncate">Создано <span class="text-slate-100">EnOt15P</span></div>
+                  <div class="flex items-center justify-end gap-2 mt-1 text-[10px] sm:text-xs text-slate-400">
+                    <a href="http://4pda.to/forum/index.php?showuser=9976456" target="_blank" rel="noopener" class="hover:text-slate-200 transition-colors">4PDA</a>
+                    <span class="text-slate-600">|</span>
+                    <a href="http://t.me/EnOt15P" target="_blank" rel="noopener" class="hover:text-slate-200 transition-colors">Telegram</a>
+                  </div>
+                </div>
+                <img src="assets/images/author-avatar.jpg" alt="EnOt15P" class="w-10 h-10 sm:w-20 sm:h-20 rounded-full object-cover border-2 border-slate-600 shrink-0"/>
+              </div>
+              <div class="flex items-center justify-end gap-2">
+                <span class="text-slate-500 text-[10px] sm:text-[11px]" id="last-update-ru"></span>
+                <button class="lang-btn active px-1.5 sm:px-2 py-0.5 rounded-md text-[10px] sm:text-[11px] font-medium border border-slate-700/50 text-slate-400 hover:text-slate-200 transition-all cursor-pointer" onclick="switchLang('ru')">RU</button>
+                <button class="lang-btn px-1.5 sm:px-2 py-0.5 rounded-md text-[10px] sm:text-[11px] font-medium border border-slate-700/50 text-slate-400 hover:text-slate-200 transition-all cursor-pointer" onclick="switchLang('en')">EN</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+          <a href="https://t.me/TURBOromMiui" target="_blank" rel="noopener" class="flex items-center gap-2 bg-slate-800/60 border border-slate-700/30 rounded-xl px-4 py-3 hover:border-blue-500/30 hover:bg-blue-500/5 transition-all group">
+            <svg class="w-5 h-5 text-blue-400 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+            <span class="text-xs text-slate-400 group-hover:text-slate-300 transition-colors">Канал</span>
+          </a>
+          <a href="https://t.me/TURBOCommunication" target="_blank" rel="noopener" class="flex items-center gap-2 bg-slate-800/60 border border-slate-700/30 rounded-xl px-4 py-3 hover:border-purple-500/30 hover:bg-purple-500/5 transition-all group">
+            <svg class="w-5 h-5 text-purple-400 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+            <span class="text-xs text-slate-400 group-hover:text-slate-300 transition-colors">Чат</span>
+          </a>
+          <a href="http://t.me/EnOt15P" target="_blank" rel="noopener" class="flex items-center gap-2 bg-slate-800/60 border border-slate-700/30 rounded-xl px-4 py-3 hover:border-cyan-500/30 hover:bg-cyan-500/5 transition-all group">
+            <svg class="w-5 h-5 text-cyan-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.076-4.076a1.526 1.526 0 011.037-.443 48.282 48.282 0 005.68-.494c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z"/></svg>
+            <span class="text-xs text-slate-400 group-hover:text-slate-300 transition-colors">Написать автору</span>
+          </a>
+          <button onclick="openPlusModal()" class="flex items-center gap-2 bg-slate-800/60 border border-slate-700/30 rounded-xl px-4 py-3 hover:border-orange-500/30 hover:bg-orange-500/5 transition-all group">
+            <div class="w-5 h-5 shrink-0 flex items-center justify-center"><span class="plus-gradient-text font-bold text-sm">P</span></div>
+            <span class="text-xs text-slate-400 group-hover:text-slate-300 transition-colors">Купить Plus</span>
+          </button>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-3">
+          <div class="relative flex-1">
+            <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/></svg>
+            <input id="search-ru" type="text" placeholder="Поиск устройства..."
+                   class="w-full bg-slate-800/80 border border-slate-700/50 rounded-xl pl-10 pr-10 py-2.5 text-sm text-slate-100 placeholder-slate-500 focus:outline-none search-glow transition-all"/>
+            <button id="clear-ru" class="absolute right-3 top-1/2 -translate-y-1/2 hidden text-slate-500 hover:text-slate-300 transition-colors" onclick="clearSearch('ru')">
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+          </div>
+          <div class="flex gap-2 flex-wrap" id="filters-ru">
+            <button class="filter-btn active text-xs px-3 py-2 rounded-xl border border-slate-700/50 text-slate-400 hover:text-slate-200 transition-all" data-filter="all" onclick="filterCategory(this, 'ru')">Все</button>
+            <button class="filter-btn text-xs px-3 py-2 rounded-xl border border-slate-700/50 text-slate-400 hover:text-slate-200 transition-all" data-filter="official" onclick="filterCategory(this, 'ru')">
+              <span class="inline-block w-1.5 h-1.5 rounded-full bg-blue-400 mr-1 align-middle"></span>Официальные
+            </button>
+            <button class="filter-btn text-xs px-3 py-2 rounded-xl border border-slate-700/50 text-slate-400 hover:text-slate-200 transition-all" data-filter="port" onclick="filterCategory(this, 'ru')">
+              <span class="inline-block w-1.5 h-1.5 rounded-full bg-purple-400 mr-1 align-middle"></span>Порты
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <div id="cards-ru" class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 min-h-[200px]"></div>
+      <div id="no-results-ru" class="no-results text-center py-16 min-h-[200px]">
+        <svg class="w-12 h-12 mx-auto text-slate-600 mb-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/></svg>
+        <p class="text-slate-500 text-sm">Устройства не найдены</p>
+      </div>
+
+      <div class="mt-8 mb-4">
+        <div class="rounded-2xl border border-slate-700/30 overflow-hidden">
+          <div class="plus-gradient-bg p-4 sm:p-6">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 rounded-xl bg-slate-800/80 flex items-center justify-center">
+                <svg class="w-5 h-5 text-orange-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/></svg>
+              </div>
+              <div>
+                <h3 class="text-slate-100 font-semibold text-sm">Поддержать проект</h3>
+                <p class="text-slate-400 text-xs">Для тех кто хочет помочь проекту</p>
+              </div>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+              <a href="https://yoomoney.ru/to/4100116522123030" target="_blank" rel="noopener" class="flex items-center gap-2 bg-slate-800/60 rounded-xl px-3 py-2.5 hover:bg-slate-800 transition-all group">
+                <div class="w-8 h-8 rounded-lg bg-slate-700/50 flex items-center justify-center shrink-0"><span class="text-yellow-400 font-bold text-xs">Y</span></div>
+                <div class="min-w-0">
+                  <div class="text-xs font-medium text-slate-300 group-hover:text-slate-100 transition-colors">ЮMoney</div>
+                  <div class="text-[10px] text-slate-500 truncate">4100 1165 2212 3030</div>
+                </div>
+              </a>
+              <a href="https://www.donationalerts.com/r/turbohyperosplus" target="_blank" rel="noopener" class="flex items-center gap-2 bg-slate-800/60 rounded-xl px-3 py-2.5 hover:bg-slate-800 transition-all group">
+                <div class="w-8 h-8 rounded-lg bg-slate-700/50 flex items-center justify-center shrink-0"><span class="text-red-400 font-bold text-xs">D</span></div>
+                <div class="min-w-0">
+                  <div class="text-xs font-medium text-slate-300 group-hover:text-slate-100 transition-colors">DonateAlerts</div>
+                  <div class="text-[10px] text-slate-500 truncate">СБП / Карта</div>
+                </div>
+              </a>
+              <a href="http://t.me/EnOt15P" target="_blank" rel="noopener" class="flex items-center gap-2 bg-slate-800/60 rounded-xl px-3 py-2.5 hover:bg-slate-800 transition-all group">
+                <div class="w-8 h-8 rounded-lg bg-slate-700/50 flex items-center justify-center shrink-0"><svg class="w-4 h-4 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.076-4.076a1.526 1.526 0 011.037-.443 48.282 48.282 0 005.68-.494c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z"/></svg></div>
+                <div class="min-w-0">
+                  <div class="text-xs font-medium text-slate-300 group-hover:text-slate-100 transition-colors">Написать автору</div>
+                  <div class="text-[10px] text-slate-500 truncate">USDT / Перевод</div>
+                </div>
+              </a>
+              <a href="https://t.me/TURBOromMiui/67" target="_blank" rel="noopener" class="flex items-center gap-2 bg-slate-800/60 rounded-xl px-3 py-2.5 hover:bg-slate-800 transition-all group">
+                <div class="w-8 h-8 rounded-lg bg-slate-700/50 flex items-center justify-center shrink-0"><svg class="w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"/></svg></div>
+                <div class="min-w-0">
+                  <div class="text-xs font-medium text-slate-300 group-hover:text-slate-100 transition-colors">Info</div>
+                  <div class="text-[10px] text-slate-500 truncate">Реквизиты</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="mt-8 pt-6 border-t border-slate-800">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+          <div class="flex items-center gap-3">
+            <img src="assets/images/author-avatar.jpg" alt="EnOt15P" class="w-8 h-8 rounded-full object-cover border border-slate-700"/>
+            <div class="text-left">
+              <span class="text-slate-400 text-sm">Автор: </span>
+              <a href="http://t.me/EnOt15P" target="_blank" rel="noopener" class="text-slate-300 text-sm font-medium hover:text-teal-400 transition-colors">EnOt15P</a>
+            </div>
+          </div>
+          <div class="flex items-center gap-4 text-xs text-slate-600">
+            <a href="http://t.me/EnOt15P" target="_blank" rel="noopener" class="hover:text-blue-400 transition-colors">Telegram</a>
+            <a href="http://4pda.to/forum/index.php?showuser=9976456" target="_blank" rel="noopener" class="hover:text-blue-400 transition-colors">4PDA</a>
+            <span>TURBO OS</span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <div id="modals-ru"></div>
+  </div>
+
+  <!-- EN Content -->
+  <div class="lang-content" data-lang="en">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
+      <header class="mb-8">
+        <div class="relative overflow-hidden rounded-3xl bg-slate-900 border border-slate-700/30 p-5 sm:p-6 mb-6">
+          <div class="absolute inset-0 bg-gradient-to-r from-teal-500/5 via-transparent to-orange-500/5 pointer-events-none"></div>
+          <div class="relative z-10 flex items-center justify-between gap-2 sm:gap-3">
+            <img src="assets/images/turbo-logo.png" alt="TURBO OS" class="h-10 sm:h-24 object-contain shrink-0"/>
+            <div class="flex flex-col items-end gap-1 sm:gap-2 shrink-0 min-w-0">
+              <div class="flex items-center gap-2 sm:gap-3">
+                <div class="text-right min-w-0">
+                  <div class="text-slate-300 text-xs sm:text-lg font-semibold truncate">Created by <span class="text-slate-100">EnOt15P</span></div>
+                  <div class="flex items-center justify-end gap-2 mt-1 text-[10px] sm:text-xs text-slate-400">
+                    <a href="http://4pda.to/forum/index.php?showuser=9976456" target="_blank" rel="noopener" class="hover:text-slate-200 transition-colors">4PDA</a>
+                    <span class="text-slate-600">|</span>
+                    <a href="http://t.me/EnOt15P" target="_blank" rel="noopener" class="hover:text-slate-200 transition-colors">Telegram</a>
+                  </div>
+                </div>
+                <img src="assets/images/author-avatar.jpg" alt="EnOt15P" class="w-10 h-10 sm:w-20 sm:h-20 rounded-full object-cover border-2 border-slate-600 shrink-0"/>
+              </div>
+              <div class="flex items-center justify-end gap-2">
+                <span class="text-slate-500 text-[10px] sm:text-[11px]" id="last-update-en"></span>
+                <button class="lang-btn px-1.5 sm:px-2 py-0.5 rounded-md text-[10px] sm:text-[11px] font-medium border border-slate-700/50 text-slate-400 hover:text-slate-200 transition-all cursor-pointer" onclick="switchLang('ru')">RU</button>
+                <button class="lang-btn active px-1.5 sm:px-2 py-0.5 rounded-md text-[10px] sm:text-[11px] font-medium border border-slate-700/50 text-slate-400 hover:text-slate-200 transition-all cursor-pointer" onclick="switchLang('en')">EN</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+          <a href="https://t.me/TURBOromMiui" target="_blank" rel="noopener" class="flex items-center gap-2 bg-slate-800/60 border border-slate-700/30 rounded-xl px-4 py-3 hover:border-blue-500/30 hover:bg-blue-500/5 transition-all group">
+            <svg class="w-5 h-5 text-blue-400 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+            <span class="text-xs text-slate-400 group-hover:text-slate-300 transition-colors">Channel</span>
+          </a>
+          <a href="https://t.me/TURBOCommunication" target="_blank" rel="noopener" class="flex items-center gap-2 bg-slate-800/60 border border-slate-700/30 rounded-xl px-4 py-3 hover:border-purple-500/30 hover:bg-purple-500/5 transition-all group">
+            <svg class="w-5 h-5 text-purple-400 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+            <span class="text-xs text-slate-400 group-hover:text-slate-300 transition-colors">Chat</span>
+          </a>
+          <a href="http://t.me/EnOt15P" target="_blank" rel="noopener" class="flex items-center gap-2 bg-slate-800/60 border border-slate-700/30 rounded-xl px-4 py-3 hover:border-cyan-500/30 hover:bg-cyan-500/5 transition-all group">
+            <svg class="w-5 h-5 text-cyan-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.076-4.076a1.526 1.526 0 011.037-.443 48.282 48.282 0 005.68-.494c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z"/></svg>
+            <span class="text-xs text-slate-400 group-hover:text-slate-300 transition-colors">Message author</span>
+          </a>
+          <button onclick="openPlusModal()" class="flex items-center gap-2 bg-slate-800/60 border border-slate-700/30 rounded-xl px-4 py-3 hover:border-orange-500/30 hover:bg-orange-500/5 transition-all group">
+            <div class="w-5 h-5 shrink-0 flex items-center justify-center"><span class="plus-gradient-text font-bold text-sm">P</span></div>
+            <span class="text-xs text-slate-400 group-hover:text-slate-300 transition-colors">Buy Plus</span>
+          </button>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-3">
+          <div class="relative flex-1">
+            <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/></svg>
+            <input id="search-en" type="text" placeholder="Search device..."
+                   class="w-full bg-slate-800/80 border border-slate-700/50 rounded-xl pl-10 pr-10 py-2.5 text-sm text-slate-100 placeholder-slate-500 focus:outline-none search-glow transition-all"/>
+            <button id="clear-en" class="absolute right-3 top-1/2 -translate-y-1/2 hidden text-slate-500 hover:text-slate-300 transition-colors" onclick="clearSearch('en')">
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+          </div>
+          <div class="flex gap-2 flex-wrap" id="filters-en">
+            <button class="filter-btn active text-xs px-3 py-2 rounded-xl border border-slate-700/50 text-slate-400 hover:text-slate-200 transition-all" data-filter="all" onclick="filterCategory(this, 'en')">All</button>
+            <button class="filter-btn text-xs px-3 py-2 rounded-xl border border-slate-700/50 text-slate-400 hover:text-slate-200 transition-all" data-filter="official" onclick="filterCategory(this, 'en')">
+              <span class="inline-block w-1.5 h-1.5 rounded-full bg-blue-400 mr-1 align-middle"></span>Official
+            </button>
+            <button class="filter-btn text-xs px-3 py-2 rounded-xl border border-slate-700/50 text-slate-400 hover:text-slate-200 transition-all" data-filter="port" onclick="filterCategory(this, 'en')">
+              <span class="inline-block w-1.5 h-1.5 rounded-full bg-purple-400 mr-1 align-middle"></span>Ports
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <div id="cards-en" class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 min-h-[200px]"></div>
+      <div id="no-results-en" class="no-results text-center py-16 min-h-[200px]">
+        <svg class="w-12 h-12 mx-auto text-slate-600 mb-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/></svg>
+        <p class="text-slate-500 text-sm">No devices found</p>
+      </div>
+
+      <div class="mt-8 mb-4">
+        <div class="rounded-2xl border border-slate-700/30 overflow-hidden">
+          <div class="plus-gradient-bg p-4 sm:p-6">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 rounded-xl bg-slate-800/80 flex items-center justify-center">
+                <svg class="w-5 h-5 text-orange-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/></svg>
+              </div>
+              <div>
+                <h3 class="text-slate-100 font-semibold text-sm">Support the project</h3>
+                <p class="text-slate-400 text-xs">For those who want to help</p>
+              </div>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+              <a href="https://yoomoney.ru/to/4100116522123030" target="_blank" rel="noopener" class="flex items-center gap-2 bg-slate-800/60 rounded-xl px-3 py-2.5 hover:bg-slate-800 transition-all group">
+                <div class="w-8 h-8 rounded-lg bg-slate-700/50 flex items-center justify-center shrink-0"><span class="text-yellow-400 font-bold text-xs">Y</span></div>
+                <div class="min-w-0">
+                  <div class="text-xs font-medium text-slate-300 group-hover:text-slate-100 transition-colors">ЮMoney</div>
+                  <div class="text-[10px] text-slate-500 truncate">4100 1165 2212 3030</div>
+                </div>
+              </a>
+              <a href="https://www.donationalerts.com/r/turbohyperosplus" target="_blank" rel="noopener" class="flex items-center gap-2 bg-slate-800/60 rounded-xl px-3 py-2.5 hover:bg-slate-800 transition-all group">
+                <div class="w-8 h-8 rounded-lg bg-slate-700/50 flex items-center justify-center shrink-0"><span class="text-red-400 font-bold text-xs">D</span></div>
+                <div class="min-w-0">
+                  <div class="text-xs font-medium text-slate-300 group-hover:text-slate-100 transition-colors">DonateAlerts</div>
+                  <div class="text-[10px] text-slate-500 truncate">SBP / Card</div>
+                </div>
+              </a>
+              <a href="http://t.me/EnOt15P" target="_blank" rel="noopener" class="flex items-center gap-2 bg-slate-800/60 rounded-xl px-3 py-2.5 hover:bg-slate-800 transition-all group">
+                <div class="w-8 h-8 rounded-lg bg-slate-700/50 flex items-center justify-center shrink-0"><svg class="w-4 h-4 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.076-4.076a1.526 1.526 0 011.037-.443 48.282 48.282 0 005.68-.494c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z"/></svg></div>
+                <div class="min-w-0">
+                  <div class="text-xs font-medium text-slate-300 group-hover:text-slate-100 transition-colors">Message author</div>
+                  <div class="text-[10px] text-slate-500 truncate">USDT / Transfer</div>
+                </div>
+              </a>
+              <a href="https://t.me/TURBOromMiui/67" target="_blank" rel="noopener" class="flex items-center gap-2 bg-slate-800/60 rounded-xl px-3 py-2.5 hover:bg-slate-800 transition-all group">
+                <div class="w-8 h-8 rounded-lg bg-slate-700/50 flex items-center justify-center shrink-0"><svg class="w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"/></svg></div>
+                <div class="min-w-0">
+                  <div class="text-xs font-medium text-slate-300 group-hover:text-slate-100 transition-colors">Info</div>
+                  <div class="text-[10px] text-slate-500 truncate">Details</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="mt-8 pt-6 border-t border-slate-800">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+          <div class="flex items-center gap-3">
+            <img src="assets/images/author-avatar.jpg" alt="EnOt15P" class="w-8 h-8 rounded-full object-cover border border-slate-700"/>
+            <div class="text-left">
+              <span class="text-slate-400 text-sm">Author: </span>
+              <a href="http://t.me/EnOt15P" target="_blank" rel="noopener" class="text-slate-300 text-sm font-medium hover:text-teal-400 transition-colors">EnOt15P</a>
+            </div>
+          </div>
+          <div class="flex items-center gap-4 text-xs text-slate-600">
+            <a href="http://t.me/EnOt15P" target="_blank" rel="noopener" class="hover:text-blue-400 transition-colors">Telegram</a>
+            <a href="http://4pda.to/forum/index.php?showuser=9976456" target="_blank" rel="noopener" class="hover:text-blue-400 transition-colors">4PDA</a>
+            <span>TURBO OS</span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <div id="modals-en"></div>
+  </div>
+
+  <script>window.__STATE__={"meta":{"last_post_id":"344","last_update":"2026-06-17T22:48:34.876119"},"devices":[{"id":"poco_f8_pro","name":"POCO F8 Pro","image":null,"category":"official","aliases":["POCO F8 PRO","Poco F8 Pro","POCO F8 Pro"]},{"id":"redmi_note_14_pro_plus_5g","name":"Redmi Note 14 Pro Plus 5G","image":null,"category":"official","aliases":["Redmi Note 14 Pro Plus 5G","RN14ProPlus5G"]},{"id":"poco_f7","name":"POCO F7","image":null,"category":"official","aliases":["POCO F7","Poco F7"]},{"id":"poco_f6_pro","name":"POCO F6 Pro","image":null,"category":"official","aliases":["POCO F6 Pro","POCO F6 PRO","Poco F6 Pro","POCO F6Pro"]},{"id":"xiaomi_14_ultra","name":"Xiaomi 14 Ultra","image":null,"category":"official","aliases":["Xiaomi 14 Ultra","Xiaomi 14Ultra"]},{"id":"xiaomi_15","name":"Xiaomi 15","image":null,"category":"official","aliases":["Xiaomi 15"]},{"id":"xiaomi_14","name":"Xiaomi 14","image":null,"category":"official","aliases":["Xiaomi 14"]},{"id":"poco_f8_ultra","name":"POCO F8 Ultra","image":null,"category":"official","aliases":["POCO F8 ULTRA","POCO F8 Ultra","Poco F8 Ultra"]},{"id":"poco_f7_pro","name":"POCO F7 Pro","image":null,"category":"official","aliases":["POCO F7 PRO","POCO F7 Pro","Poco F7 Pro"]},{"id":"poco_f6","name":"POCO F6","image":null,"category":"official","aliases":["POCO F6","Poco F6"]},{"id":"poco_m8_pro_5g","name":"POCO M8 Pro 5G","image":null,"category":"official","aliases":["POCO M8 Pro 5G","Poco M8 Pro 5G"]},{"id":"xiaomi_17_pro","name":"Xiaomi 17 Pro","image":null,"category":"official","aliases":["Xiaomi 17 Pro","Xiaomi 17Pro"]},{"id":"poco_f7_ultra","name":"POCO F7 Ultra","image":null,"category":"port","aliases":["POCO F7 Ultra","POCO F7Ultra","Poco F7 Ultra"]},{"id":"xiaomi_13_pro","name":"Xiaomi 13 Pro","image":null,"category":"port","aliases":["Xiaomi 13 Pro","Xiaomi 13Pro"]},{"id":"xiaomi_12_pro","name":"Xiaomi 12 Pro","image":null,"category":"port","aliases":["Xiaomi 12 Pro","Xiaomi 12Pro"]},{"id":"xiaomi_12","name":"Xiaomi 12","image":null,"category":"port","aliases":["Xiaomi 12"]},{"id":"xiaomi_12s_ultra","name":"Xiaomi 12S Ultra","image":null,"category":"port","aliases":["Xiaomi 12S Ultra","Xiaomi 12SUltra"]},{"id":"xiaomi_12_lite","name":"Xiaomi 12 Lite","image":null,"category":"port","aliases":["Xiaomi 12 Lite","Xiaomi 12Lite"]},{"id":"poco_f5_pro","name":"POCO F5 Pro","image":null,"category":"port","aliases":["POCO F5 Pro","POCO F5 PRO","Poco F5 Pro","Redmi K60","POCO F5 Pro / Redmi K60"]},{"id":"poco_f5","name":"POCO F5","image":null,"category":"port","aliases":["POCO F5","Poco F5"]},{"id":"poco_x5_pro_5g","name":"POCO X5 Pro 5G","image":null,"category":"port","aliases":["POCO X5 PRO 5G","POCO X5 Pro 5G","Poco X5 Pro 5G"]},{"id":"poco_f4","name":"POCO F4","image":null,"category":"port","aliases":["POCO F4","Poco F4"]},{"id":"redmi_note_12_4g","name":"Redmi Note 12 4G / NFC","image":null,"category":"port","aliases":["Redmi Note 12 4G","Redmi Note 12 4G / NFC","RN 12 4G / NFC","RN 12 4G"]},{"id":"redmi_note_11_pro_5g","name":"Redmi Note 11 Pro 5G","image":null,"category":"port","aliases":["Redmi Note 11 Pro 5G","RN 11 Pro 5G"]},{"id":"poco_x3_pro","name":"POCO X3 Pro","image":null,"category":"port","aliases":["POCO X3 Pro","POCO X3 PRO","Poco X3 Pro"]},{"id":"redmi_note_10_pro","name":"Redmi Note 10 Pro","image":null,"category":"port","aliases":["Redmi Note 10 Pro","RN10 Pro","RN 10 Pro"]},{"id":"poco_f4_gt","name":"POCO F4 GT","image":null,"category":"port","aliases":["POCO F4 GT","Poco F4 GT"]},{"id":"poco_f3","name":"POCO F3","image":null,"category":"port","aliases":["POCO F3","Poco F3"]},{"id":"mi_10t_pro","name":"Mi 10T Pro","image":null,"category":"port","aliases":["Mi 10T Pro","Xiaomi Mi 10T Pro","Mi10T Pro"]},{"id":"mi_10","name":"Mi 10","image":null,"category":"port","aliases":["Mi 10","Xiaomi Mi 10","Xiaomi Mi10","Mi10"]}],"roms":[{"id":"rom_723b492029d3","version":"3.0.313.0.WBLCNXM","type":"plus","date":"2026-06-17T17:45:59+00:00","download_link":null,"changelog_link":"https://telegra.ph/TURBO-OS-PLUS-30-V21-12-14","price":500,"device_ids":["xiaomi_17_pro"],"screenshot_post_id":null,"plus_date":"16.06.26","discount_price":250,"discount_condition":"02.06.26"},{"id":"rom_6841218190fc","version":"3.0.303.0.WOCCNXM","type":"plus","date":"2026-06-17T17:45:59+00:00","download_link":null,"changelog_link":"https://telegra.ph/TURBO-OS-PLUS-30-V21-12-14","price":500,"device_ids":["xiaomi_15"],"screenshot_post_id":null,"plus_date":"16.06.26","discount_price":250,"discount_condition":"02.06.26"},{"id":"rom_f2f0576a5863","version":"3.0.305.0.WPKCNXM","type":"plus","date":"2026-06-17T17:45:59+00:00","download_link":null,"changelog_link":"https://telegra.ph/TURBO-OS-PLUS-30-V21-12-14","price":500,"device_ids":["poco_f8_pro"],"screenshot_post_id":null,"plus_date":"16.06.26","discount_price":250,"discount_condition":"02.06.26"},{"id":"rom_364dd3931b1e","version":"3.0.303.0.WNPCNXM","type":"plus","date":"2026-06-17T17:45:59+00:00","download_link":null,"changelog_link":"https://telegra.ph/TURBO-OS-PLUS-30-V21-12-14","price":500,"device_ids":["poco_f6"],"screenshot_post_id":null,"plus_date":"16.06.26","discount_price":250,"discount_condition":"02.06.26"},{"id":"rom_eecae8f516da","version":"3.0.313.0.WPRCNXM","type":"plus","date":"2026-06-17T17:45:59+00:00","download_link":null,"changelog_link":"https://telegra.ph/TURBO-OS-PLUS-30-V21-12-14","price":500,"device_ids":["poco_m8_pro_5g"],"screenshot_post_id":null,"plus_date":"16.06.26","discount_price":250,"discount_condition":"02.06.26"},{"id":"rom_2c9ad62aeee4","version":"3.0.303.0.WOKCNXM","type":"plus","date":"2026-06-17T17:45:59+00:00","download_link":null,"changelog_link":"https://telegra.ph/TURBO-OS-PLUS-30-V21-12-14","price":500,"device_ids":["poco_f7_pro"],"screenshot_post_id":null,"plus_date":"16.06.26","discount_price":250,"discount_condition":"02.06.26"},{"id":"rom_c0c44a8659c5","version":"3.0.303.0.WOLCNXM","type":"plus","date":"2026-06-17T17:45:59+00:00","download_link":null,"changelog_link":"https://telegra.ph/TURBO-OS-PLUS-30-V21-12-14","price":500,"device_ids":["poco_f7"],"screenshot_post_id":null,"plus_date":"16.06.26","discount_price":250,"discount_condition":"02.06.26"},{"id":"rom_519925e80f88","version":"3.0.303.0.WNKCNXM","type":"plus","date":"2026-06-17T17:45:59+00:00","download_link":null,"changelog_link":"https://telegra.ph/TURBO-OS-PLUS-30-V21-12-14","price":500,"device_ids":["poco_f6_pro"],"screenshot_post_id":null,"plus_date":"16.06.26","discount_price":250,"discount_condition":"02.06.26"},{"id":"rom_fb414f599235","version":"3.0.304.0.WNACNXM","type":"plus","date":"2026-06-17T17:45:59+00:00","download_link":null,"changelog_link":"https://telegra.ph/TURBO-OS-PLUS-30-V21-12-14","price":500,"device_ids":["xiaomi_14_ultra"],"screenshot_post_id":null,"plus_date":"16.06.26","discount_price":250,"discount_condition":"02.06.26"},{"id":"rom_8f6f11bdb937","version":"3.0.303.0.WOPCNXM","type":"plus","date":"2026-06-17T17:45:59+00:00","download_link":null,"changelog_link":"https://telegra.ph/TURBO-OS-PLUS-30-V21-12-14","price":500,"device_ids":["redmi_note_14_pro_plus_5g"],"screenshot_post_id":null,"plus_date":"16.06.26","discount_price":250,"discount_condition":"02.06.26"},{"id":"rom_6896c8038387","version":"3.0.302.0.WNCCNXM","type":"plus","date":"2026-06-17T17:45:59+00:00","download_link":null,"changelog_link":"https://telegra.ph/TURBO-OS-PLUS-30-V21-12-14","price":500,"device_ids":["xiaomi_14"],"screenshot_post_id":null,"plus_date":"16.06.26","discount_price":250,"discount_condition":"02.06.26"},{"id":"rom_82ecd910698f","version":"3.0.303.0.WNKCNXM","type":"plus","date":"2026-06-17T17:45:59+00:00","download_link":null,"changelog_link":"https://telegra.ph/TURBO-OS-PLUS-30-V21-12-14","price":500,"device_ids":["poco_x3_pro"],"screenshot_post_id":null,"plus_date":"16.06.26","discount_price":250,"discount_condition":"02.06.26"},{"id":"rom_6bfa83096a3f","version":"3.0.303.0.WNKCNXM","type":"plus","date":"2026-06-17T17:45:59+00:00","download_link":null,"changelog_link":"https://telegra.ph/TURBO-OS-PLUS-30-V21-12-14","price":500,"device_ids":["redmi_note_10_pro"],"screenshot_post_id":null,"plus_date":"16.06.26","discount_price":250,"discount_condition":"02.06.26"},{"id":"rom_04d7c8cb16be","version":"3.0.303.0.WNKCNXM","type":"plus","date":"2026-06-17T17:45:59+00:00","download_link":null,"changelog_link":"https://telegra.ph/TURBO-OS-PLUS-30-V21-12-14","price":500,"device_ids":["poco_f7_ultra"],"screenshot_post_id":null,"plus_date":"16.06.26","discount_price":250,"discount_condition":"02.06.26"},{"id":"rom_fff98f4248b8","version":"3.0.303.0.WNKCNXM","type":"plus","date":"2026-06-17T17:45:59+00:00","download_link":null,"changelog_link":"https://telegra.ph/TURBO-OS-PLUS-30-V21-12-14","price":500,"device_ids":["xiaomi_13_pro"],"screenshot_post_id":null,"plus_date":"16.06.26","discount_price":250,"discount_condition":"02.06.26"},{"id":"rom_241834f39aa6","version":"3.0.303.0.WNKCNXM","type":"plus","date":"2026-06-17T17:45:59+00:00","download_link":null,"changelog_link":"https://telegra.ph/TURBO-OS-PLUS-30-V21-12-14","price":500,"device_ids":["xiaomi_12_pro"],"screenshot_post_id":null,"plus_date":"16.06.26","discount_price":250,"discount_condition":"02.06.26"},{"id":"rom_ac2b671bfbde","version":"3.0.303.0.WNKCNXM","type":"plus","date":"2026-06-17T17:45:59+00:00","download_link":null,"changelog_link":"https://telegra.ph/TURBO-OS-PLUS-30-V21-12-14","price":500,"device_ids":["xiaomi_12"],"screenshot_post_id":null,"plus_date":"16.06.26","discount_price":250,"discount_condition":"02.06.26"},{"id":"rom_965f4e5c616d","version":"3.0.303.0.WNKCNXM","type":"plus","date":"2026-06-17T17:45:59+00:00","download_link":null,"changelog_link":"https://telegra.ph/TURBO-OS-PLUS-30-V21-12-14","price":500,"device_ids":["xiaomi_12s_ultra"],"screenshot_post_id":null,"plus_date":"16.06.26","discount_price":250,"discount_condition":"02.06.26"},{"id":"rom_5bec8ab80d30","version":"3.0.303.0.WNKCNXM","type":"plus","date":"2026-06-17T17:45:59+00:00","download_link":null,"changelog_link":"https://telegra.ph/TURBO-OS-PLUS-30-V21-12-14","price":500,"device_ids":["xiaomi_12_lite"],"screenshot_post_id":null,"plus_date":"16.06.26","discount_price":250,"discount_condition":"02.06.26"},{"id":"rom_eb5f8c716a70","version":"3.0.303.0.WNKCNXM","type":"plus","date":"2026-06-17T17:45:59+00:00","download_link":null,"changelog_link":"https://telegra.ph/TURBO-OS-PLUS-30-V21-12-14","price":500,"device_ids":["poco_f5_pro"],"screenshot_post_id":null,"plus_date":"16.06.26","discount_price":250,"discount_condition":"02.06.26"},{"id":"rom_c35379d7cd22","version":"3.0.303.0.WNKCNXM","type":"plus","date":"2026-06-17T17:45:59+00:00","download_link":null,"changelog_link":"https://telegra.ph/TURBO-OS-PLUS-30-V21-12-14","price":500,"device_ids":["poco_f5"],"screenshot_post_id":null,"plus_date":"16.06.26","discount_price":250,"discount_condition":"02.06.26"},{"id":"rom_1034ac9d4c6f","version":"3.0.303.0.WNKCNXM","type":"plus","date":"2026-06-17T17:45:59+00:00","download_link":null,"changelog_link":"https://telegra.ph/TURBO-OS-PLUS-30-V21-12-14","price":500,"device_ids":["poco_x5_pro_5g"],"screenshot_post_id":null,"plus_date":"16.06.26","discount_price":250,"discount_condition":"02.06.26"},{"id":"rom_44330d2d4c88","version":"3.0.303.0.WNKCNXM","type":"plus","date":"2026-06-17T17:45:59+00:00","download_link":null,"changelog_link":"https://telegra.ph/TURBO-OS-PLUS-30-V21-12-14","price":500,"device_ids":["poco_f4"],"screenshot_post_id":null,"plus_date":"16.06.26","discount_price":250,"discount_condition":"02.06.26"},{"id":"rom_389a613ea375","version":"3.0.303.0.WNKCNXM","type":"plus","date":"2026-06-17T17:45:59+00:00","download_link":null,"changelog_link":"https://telegra.ph/TURBO-OS-PLUS-30-V21-12-14","price":500,"device_ids":["redmi_note_12_4g"],"screenshot_post_id":null,"plus_date":"16.06.26","discount_price":250,"discount_condition":"02.06.26"},{"id":"rom_f2b3bbc80ec3","version":"3.0.303.0.WNKCNXM","type":"plus","date":"2026-06-17T17:45:59+00:00","download_link":null,"changelog_link":"https://telegra.ph/TURBO-OS-PLUS-30-V21-12-14","price":500,"device_ids":["redmi_note_11_pro_5g"],"screenshot_post_id":null,"plus_date":"16.06.26","discount_price":250,"discount_condition":"02.06.26"},{"id":"rom_1661f5d6575f","version":"3.0.303.0","type":"plus","date":"2026-06-17T17:45:59+00:00","download_link":null,"changelog_link":"https://telegra.ph/TURBO-OS-PLUS-30-V21-12-14","price":500,"device_ids":["mi_10"],"screenshot_post_id":null,"plus_date":"16.06.26","discount_price":250,"discount_condition":"02.06.26"},{"id":"rom_ff1784f59572","version":"3.0.313.0.WBLCNXM","type":"free","date":"2026-06-16T16:31:10+00:00","download_link":"https://pixeldrain.com/u/TUeHFELN","changelog_link":"https://telegra.ph/TURBO-OS-303130WBLCNXM-06-07","price":null,"device_ids":["xiaomi_17_pro"],"screenshot_post_id":null},{"id":"rom_44a14c862934","version":"3.0.304.0.WPKCNXM","type":"plus","date":"2026-06-02T19:19:52+00:00","download_link":null,"changelog_link":null,"price":null,"device_ids":["poco_f8_pro"],"screenshot_post_id":null,"plus_date":"02.06.26"},{"id":"rom_473ca4befa4d","version":"3.0.302.0.WOCCNXM","type":"plus","date":"2026-06-02T19:19:52+00:00","download_link":null,"changelog_link":null,"price":null,"device_ids":["xiaomi_15"],"screenshot_post_id":null,"plus_date":"02.06.26"},{"id":"rom_6838fc570408","version":"3.0.303.0","type":"plus","date":"2026-06-02T19:19:52+00:00","download_link":null,"changelog_link":null,"price":null,"device_ids":["poco_x3_pro"],"screenshot_post_id":null,"plus_date":"02.06.26"},{"id":"rom_934c90a48669","version":"3.0.303.0","type":"plus","date":"2026-06-02T19:19:52+00:00","download_link":null,"changelog_link":null,"price":500,"device_ids":["redmi_note_10_pro"],"screenshot_post_id":null,"plus_date":"02.06.26","discount_price":null,"discount_condition":null},{"id":"rom_6bdb51b713b9","version":"3.0.303.0.WOKCNXM","type":"free","date":"2026-05-31T15:22:13+00:00","download_link":"https://pixeldrain.com/u/TeqSpoRE","changelog_link":"https://telegra.ph/TURBO-OS-303030WOPCNXM-05-17","price":null,"device_ids":["poco_f7_pro"],"screenshot_post_id":null},{"id":"rom_420edda489df","version":"3.0.303.0.WPMCNXM","type":"free","date":"2026-05-31T15:22:13+00:00","download_link":"https://pixeldrain.com/u/tKwWAV5A","changelog_link":"https://telegra.ph/TURBO-OS-303030WOPCNXM-05-17","price":null,"device_ids":["poco_f8_ultra"],"screenshot_post_id":null},{"id":"rom_b56f26beed3d","version":null,"type":"plus","date":"2026-05-19T18:35:01+00:00","download_link":null,"changelog_link":null,"price":null,"device_ids":["poco_f7_ultra"],"screenshot_post_id":null,"plus_date":"17.05.26"},{"id":"rom_61ba2060a673","version":null,"type":"plus","date":"2026-05-19T18:35:01+00:00","download_link":null,"changelog_link":null,"price":null,"device_ids":["poco_f7_pro"],"screenshot_post_id":null,"plus_date":"17.05.26"},{"id":"rom_2517c57e8a5a","version":null,"type":"plus","date":"2026-05-19T18:35:01+00:00","download_link":null,"changelog_link":null,"price":null,"device_ids":["xiaomi_13_pro"],"screenshot_post_id":null,"plus_date":"17.05.26"},{"id":"rom_100cea28e4df","version":null,"type":"plus","date":"2026-05-19T18:35:01+00:00","download_link":null,"changelog_link":null,"price":null,"device_ids":["xiaomi_12_pro"],"screenshot_post_id":null,"plus_date":"17.05.26"},{"id":"rom_8a05a65f1020","version":null,"type":"plus","date":"2026-05-19T18:35:01+00:00","download_link":null,"changelog_link":null,"price":null,"device_ids":["xiaomi_12"],"screenshot_post_id":null,"plus_date":"17.05.26"},{"id":"rom_d0138623b54f","version":null,"type":"plus","date":"2026-05-19T18:35:01+00:00","download_link":null,"changelog_link":null,"price":null,"device_ids":["xiaomi_12s_ultra"],"screenshot_post_id":null,"plus_date":"17.05.26"},{"id":"rom_711f6ecaa872","version":null,"type":"plus","date":"2026-05-19T18:35:01+00:00","download_link":null,"changelog_link":null,"price":null,"device_ids":["xiaomi_12_lite"],"screenshot_post_id":null,"plus_date":"17.05.26"},{"id":"rom_c433c06bde94","version":null,"type":"plus","date":"2026-05-19T18:35:01+00:00","download_link":null,"changelog_link":null,"price":null,"device_ids":["poco_f5_pro"],"screenshot_post_id":null,"plus_date":"17.05.26"},{"id":"rom_5f5c300002ea","version":null,"type":"plus","date":"2026-05-19T18:35:01+00:00","download_link":null,"changelog_link":null,"price":null,"device_ids":["poco_f5"],"screenshot_post_id":null,"plus_date":"17.05.26"},{"id":"rom_1e64df74dfa4","version":null,"type":"plus","date":"2026-05-19T18:35:01+00:00","download_link":null,"changelog_link":null,"price":null,"device_ids":["poco_x5_pro_5g"],"screenshot_post_id":null,"plus_date":"17.05.26"},{"id":"rom_7db34cd381ad","version":null,"type":"plus","date":"2026-05-19T18:35:01+00:00","download_link":null,"changelog_link":null,"price":null,"device_ids":["poco_f4"],"screenshot_post_id":null,"plus_date":"17.05.26"},{"id":"rom_ca5811bb07ed","version":null,"type":"plus","date":"2026-05-19T18:35:01+00:00","download_link":null,"changelog_link":null,"price":null,"device_ids":["redmi_note_12_4g"],"screenshot_post_id":null,"plus_date":"17.05.26"},{"id":"rom_a544fdd3fef1","version":null,"type":"plus","date":"2026-05-19T18:35:01+00:00","download_link":null,"changelog_link":null,"price":null,"device_ids":["redmi_note_11_pro_5g"],"screenshot_post_id":null,"plus_date":"17.05.26"},{"id":"rom_31626e157c11","version":null,"type":"plus","date":"2026-05-19T18:35:01+00:00","download_link":null,"changelog_link":null,"price":500,"device_ids":["poco_x3_pro"],"screenshot_post_id":null,"plus_date":"17.05.26","discount_price":null,"discount_condition":null},{"id":"rom_48046bdf0f65","version":null,"type":"plus","date":"2026-05-19T18:35:01+00:00","download_link":null,"changelog_link":null,"price":500,"device_ids":["redmi_note_10_pro"],"screenshot_post_id":null,"plus_date":"17.05.26","discount_price":null,"discount_condition":null},{"id":"rom_9a6d32a85141","version":null,"type":"plus","date":"2026-05-19T18:35:01+00:00","download_link":null,"changelog_link":null,"price":500,"device_ids":["poco_f4_gt"],"screenshot_post_id":null,"plus_date":"17.05.26","discount_price":null,"discount_condition":null},{"id":"rom_283de2846c57","version":null,"type":"plus","date":"2026-05-19T18:35:01+00:00","download_link":null,"changelog_link":null,"price":500,"device_ids":["poco_f3"],"screenshot_post_id":null,"plus_date":"17.05.26","discount_price":null,"discount_condition":null},{"id":"rom_f4b923a799dd","version":null,"type":"plus","date":"2026-05-19T18:35:01+00:00","download_link":null,"changelog_link":null,"price":500,"device_ids":["mi_10t_pro"],"screenshot_post_id":null,"plus_date":"17.05.26","discount_price":null,"discount_condition":null},{"id":"rom_73365664f7b5","version":null,"type":"plus","date":"2026-05-19T18:35:01+00:00","download_link":null,"changelog_link":null,"price":500,"device_ids":["mi_10"],"screenshot_post_id":null,"plus_date":"17.05.26","discount_price":null,"discount_condition":null},{"id":"rom_283778431305","version":"3.0.304.0.WPKCNXM","type":"free","date":"2026-05-17T17:24:42+00:00","download_link":"https://pixeldrain.com/u/pHu4hNny","changelog_link":"https://telegra.ph/TURBO-OS-303040WPKCNXM-05-17","price":null,"device_ids":["poco_f8_pro"],"screenshot_post_id":null},{"id":"rom_7bf25c754752","version":"3.0.303.0.WOPCNXM","type":"free","date":"2026-05-17T17:24:42+00:00","download_link":"https://pixeldrain.com/u/riVj8PZB","changelog_link":"https://telegra.ph/TURBO-OS-303030WOPCNXM-05-17","price":null,"device_ids":["redmi_note_14_pro_plus_5g"],"screenshot_post_id":null},{"id":"rom_1c47429f39f7","version":"3.0.303.0.WNKCNXM","type":"free","date":"2026-05-15T16:09:08+00:00","download_link":"https://pixeldrain.com/u/zkHuHcew","changelog_link":"https://telegra.ph/TURBO-OS-3040-stabilnaya-12-13","price":null,"device_ids":["poco_f6_pro"],"screenshot_post_id":null},{"id":"rom_659acbad0c95","version":"3.0.303.0.WNKCNXM","type":"free","date":"2026-05-15T16:09:08+00:00","download_link":"https://pixeldrain.com/u/ynwPWhAm","changelog_link":null,"price":null,"device_ids":["xiaomi_13_pro"],"screenshot_post_id":null},{"id":"rom_bddae6b5a656","version":"3.0.303.0.WNKCNXM","type":"free","date":"2026-05-15T16:09:08+00:00","download_link":"https://pixeldrain.com/u/e8dz6aBn","changelog_link":null,"price":null,"device_ids":["xiaomi_12_pro"],"screenshot_post_id":null},{"id":"rom_5d9e8f664656","version":"3.0.303.0.WNKCNXM","type":"free","date":"2026-05-15T16:09:08+00:00","download_link":"https://pixeldrain.com/u/eKAESU12","changelog_link":null,"price":null,"device_ids":["xiaomi_12s_ultra"],"screenshot_post_id":null},{"id":"rom_c0a78802463a","version":"3.0.303.0.WNKCNXM","type":"free","date":"2026-05-15T16:09:08+00:00","download_link":"https://pixeldrain.com/u/AjrZXZJ5","changelog_link":null,"price":null,"device_ids":["xiaomi_12"],"screenshot_post_id":null},{"id":"rom_a94e17e91c29","version":"3.0.303.0.WNKCNXM","type":"free","date":"2026-05-15T16:09:08+00:00","download_link":"https://pixeldrain.com/u/i2FA2Qhk","changelog_link":null,"price":null,"device_ids":["xiaomi_12_lite"],"screenshot_post_id":null},{"id":"rom_111869fabb82","version":"3.0.303.0.WNKCNXM","type":"free","date":"2026-05-15T16:09:08+00:00","download_link":"https://pixeldrain.com/u/auvNgRzX","changelog_link":null,"price":null,"device_ids":["poco_f7_ultra"],"screenshot_post_id":null},{"id":"rom_aa29ee034c16","version":"3.0.303.0.WNKCNXM","type":"free","date":"2026-05-15T16:09:08+00:00","download_link":"https://pixeldrain.com/u/qRrxWLAc","changelog_link":null,"price":null,"device_ids":["poco_f7_pro"],"screenshot_post_id":null},{"id":"rom_fd2196684505","version":"3.0.303.0.WNKCNXM","type":"free","date":"2026-05-15T16:09:08+00:00","download_link":"https://pixeldrain.com/u/jEo5r1H5","changelog_link":null,"price":null,"device_ids":["poco_f5_pro"],"screenshot_post_id":null},{"id":"rom_517596e20fbf","version":"3.0.303.0.WNKCNXM","type":"free","date":"2026-05-15T16:09:08+00:00","download_link":"https://pixeldrain.com/u/jUgC6rKr","changelog_link":null,"price":null,"device_ids":["poco_f5"],"screenshot_post_id":null},{"id":"rom_3db472893e67","version":"3.0.303.0.WNKCNXM","type":"free","date":"2026-05-15T16:09:08+00:00","download_link":"https://pixeldrain.com/u/S1JWbzne","changelog_link":null,"price":null,"device_ids":["poco_f4"],"screenshot_post_id":null},{"id":"rom_7b9676a66d04","version":"3.0.303.0.WNKCNXM","type":"free","date":"2026-05-15T16:09:08+00:00","download_link":"https://pixeldrain.com/u/n6vFMVuT","changelog_link":null,"price":null,"device_ids":["poco_x5_pro_5g"],"screenshot_post_id":null},{"id":"rom_5ea38a212af8","version":"3.0.303.0.WNKCNXM","type":"free","date":"2026-05-15T16:09:08+00:00","download_link":"https://pixeldrain.com/u/1CRJRDia","changelog_link":null,"price":null,"device_ids":["redmi_note_12_4g"],"screenshot_post_id":null},{"id":"rom_881604b71256","version":"3.0.303.0.WNKCNXM","type":"free","date":"2026-05-15T16:09:08+00:00","download_link":"https://pixeldrain.com/u/eDbR9daM","changelog_link":null,"price":null,"device_ids":["redmi_note_11_pro_5g"],"screenshot_post_id":null},{"id":"rom_1f9b23c24f9a","version":"3.0.303.0.WOLCNXM","type":"free","date":"2026-05-15T15:52:37+00:00","download_link":"https://pixeldrain.com/u/5FYViLf2","changelog_link":"https://telegra.ph/TURBO-OS-303030WOLCNXM-05-15","price":null,"device_ids":["poco_f7"],"screenshot_post_id":null},{"id":"rom_6576aa965a0f","version":null,"type":"plus","date":"2026-05-02T15:19:03+00:00","download_link":null,"changelog_link":null,"price":null,"device_ids":["xiaomi_15"],"screenshot_post_id":null},{"id":"rom_bed526109eeb","version":null,"type":"plus","date":"2026-05-02T15:19:03+00:00","download_link":null,"changelog_link":null,"price":null,"device_ids":["xiaomi_14"],"screenshot_post_id":null},{"id":"rom_c6912edeb745","version":null,"type":"plus","date":"2026-05-02T15:19:03+00:00","download_link":null,"changelog_link":null,"price":null,"device_ids":["poco_f7"],"screenshot_post_id":null},{"id":"rom_6675eec49495","version":null,"type":"plus","date":"2026-04-08T17:32:29+00:00","download_link":null,"changelog_link":null,"price":null,"device_ids":["poco_f6_pro"],"screenshot_post_id":null},{"id":"rom_18acf1f60b3d","version":"3.0.9.0","type":"free","date":"2026-03-25T16:23:04+00:00","download_link":"https://pixeldrain.com/u/qxnBXYe3","changelog_link":"https://telegra.ph/TURBO-OS-3040-stabilnaya-12-13","price":null,"device_ids":["redmi_note_10_pro"],"screenshot_post_id":null},{"id":"rom_d2b8cf58294c","version":"3.0.9.0","type":"free","date":"2026-03-25T16:23:04+00:00","download_link":null,"changelog_link":null,"price":null,"device_ids":["xiaomi_15"],"screenshot_post_id":null},{"id":"rom_9da29122b266","version":"3.0.9.0","type":"free","date":"2026-03-25T16:23:04+00:00","download_link":"https://pixeldrain.com/u/VEMpDPR9","changelog_link":"https://telegra.ph/TURBO-OS-3040-stabilnaya-12-13","price":null,"device_ids":["xiaomi_14"],"screenshot_post_id":null},{"id":"rom_b674b7683d5f","version":"3.0.9.0","type":"free","date":"2026-03-25T16:23:04+00:00","download_link":null,"changelog_link":null,"price":null,"device_ids":["xiaomi_13_pro"],"screenshot_post_id":null},{"id":"rom_141008606ff9","version":"3.0.9.0","type":"free","date":"2026-03-25T16:23:04+00:00","download_link":null,"changelog_link":null,"price":null,"device_ids":["xiaomi_12_pro"],"screenshot_post_id":null},{"id":"rom_2cf5de11b74f","version":"3.0.303.0.WPMCNXM","type":"plus","date":"2026-06-16T00:00:00","download_link":null,"changelog_link":"https://telegra.ph/TURBO-OS-PLUS-30-V21-12-14","price":500,"device_ids":["poco_f8_ultra"],"screenshot_post_id":null,"plus_date":"16.06.26","discount_price":250,"discount_condition":"02.06.26"},{"id":"rom_a68eb4535044","version":"3.0.303.0.WOCCNXM","type":"free","date":"2026-06-18T00:00:00","download_link":"https://pixeldrain.com/u/8F5v5bo7","changelog_link":"https://telegra.ph/TURBO-OS-303030WOCCNXM-06-16","price":null,"device_ids":["xiaomi_15"],"screenshot_post_id":null},{"id":"rom_a65bd7bf0205","version":"3.0.305.0.WPKCNXM","type":"free","date":"2026-06-18T00:00:00","download_link":"https://pixeldrain.com/u/xEyftHs5","changelog_link":"https://telegra.ph/TURBO-OS-303040WPKCNXM-05-17","price":null,"device_ids":["poco_f8_pro"],"screenshot_post_id":null},{"id":"rom_7266809faec7","version":"3.0.303.0.WNPCNXM","type":"free","date":"2026-06-18T00:00:00","download_link":"https://pixeldrain.com/u/yHm9oiFz","changelog_link":"https://telegra.ph/TURBO-OS-303030WNPCNXM-06-15","price":null,"device_ids":["poco_f6"],"screenshot_post_id":null},{"id":"rom_b3c7ed0b5ca5","version":"3.0.313.0.WPRCNXM","type":"free","date":"2026-06-18T00:00:00","download_link":"https://pixeldrain.com/u/Kgrcgw1L","changelog_link":"https://telegra.ph/TURBO-OS-303100WPRCNXM-06-07","price":null,"device_ids":["poco_m8_pro_5g"],"screenshot_post_id":null},{"id":"rom_9f2cb1e69cc6","version":"3.0.9.0","type":"plus","date":"2026-05-17T00:00:00","download_link":null,"changelog_link":"https://telegra.ph/TURBO-OS-PLUS-30-V21-12-14","price":500,"discount_price":250,"discount_condition":"V24.5","device_ids":["poco_f4_gt"],"screenshot_post_id":null,"plus_date":"17.05.26"},{"id":"rom_7808c3570820","version":"3.0.9.0","type":"plus","date":"2026-05-17T00:00:00","download_link":null,"changelog_link":"https://telegra.ph/TURBO-OS-PLUS-30-V21-12-14","price":500,"discount_price":250,"discount_condition":"V24.5","device_ids":["poco_f3"],"screenshot_post_id":null,"plus_date":"17.05.26"},{"id":"rom_295baf5eb6b6","version":"3.0.9.0","type":"plus","date":"2026-05-17T00:00:00","download_link":null,"changelog_link":"https://telegra.ph/TURBO-OS-PLUS-30-V21-12-14","price":500,"discount_price":250,"discount_condition":"V24.5","device_ids":["mi_10t_pro"],"screenshot_post_id":null,"plus_date":"17.05.26"},{"id":"rom_35924bbc5ea3","version":"3.0.9.0","type":"free","date":"2026-06-18T00:00:00","download_link":"https://pixeldrain.com/u/1D3fkFH6","changelog_link":"https://telegra.ph/TURBO-OS-3040-stabilnaya-12-13","price":null,"device_ids":["poco_x3_pro"],"screenshot_post_id":null},{"id":"rom_8edf40886a61","version":"3.0.9.0","type":"free","date":"2026-06-18T00:00:00","download_link":"https://pixeldrain.com/u/UzGA9rUt","changelog_link":"https://telegra.ph/TURBO-OS-3040-stabilnaya-12-13","price":null,"device_ids":["poco_f4_gt"],"screenshot_post_id":null},{"id":"rom_7909b15aa244","version":"3.0.9.0","type":"free","date":"2026-06-18T00:00:00","download_link":"https://pixeldrain.com/u/DtN269dc","changelog_link":"https://telegra.ph/TURBO-OS-3040-stabilnaya-12-13","price":null,"device_ids":["poco_f3"],"screenshot_post_id":null},{"id":"rom_85b5c92d2d48","version":"3.0.9.0","type":"free","date":"2026-06-18T00:00:00","download_link":"https://pixeldrain.com/u/EqovWNKF","changelog_link":"https://telegra.ph/TURBO-OS-3040-stabilnaya-12-13","price":null,"device_ids":["mi_10t_pro"],"screenshot_post_id":null},{"id":"rom_2439e6c41354","version":"3.0.9.0","type":"free","date":"2026-06-18T00:00:00","download_link":"https://pixeldrain.com/u/UXT4byTc","changelog_link":"https://telegra.ph/TURBO-OS-3040-stabilnaya-12-13","price":null,"device_ids":["mi_10"],"screenshot_post_id":null},{"id":"rom_c48ceba2094f","version":"3.0.304.0","type":"free","date":"2026-06-18T00:00:00","download_link":"https://pixeldrain.com/u/56rXYK5S","changelog_link":"https://telegra.ph/TURBO-OS-3040-stabilnaya-12-13","price":null,"device_ids":["xiaomi_14_ultra"],"screenshot_post_id":null}],"device_roms":{"xiaomi_17_pro":{"free_rom_id":"rom_ff1784f59572","plus_rom_id":"rom_723b492029d3","manual":{"notes":"","archive":[]},"plus_date":"16.06.26","plus_version":"3.0.313.0.WBLCNXM","free_version":"3.0.313.0.WBLCNXM"},"xiaomi_15":{"free_rom_id":"rom_a68eb4535044","plus_rom_id":"rom_6841218190fc","manual":{"notes":"","archive":[]},"plus_date":"16.06.26","plus_version":"3.0.303.0.WOCCNXM","free_version":"3.0.303.0.WOCCNXM"},"poco_f8_pro":{"free_rom_id":"rom_a65bd7bf0205","plus_rom_id":"rom_f2f0576a5863","manual":{"notes":"","archive":[]},"plus_date":"16.06.26","plus_version":"3.0.305.0.WPKCNXM","free_version":"3.0.305.0.WPKCNXM"},"poco_f6":{"free_rom_id":"rom_7266809faec7","plus_rom_id":"rom_364dd3931b1e","manual":{"notes":"","archive":[]},"plus_date":"16.06.26","plus_version":"3.0.303.0.WNPCNXM","free_version":"3.0.303.0.WNPCNXM"},"poco_m8_pro_5g":{"free_rom_id":"rom_b3c7ed0b5ca5","plus_rom_id":"rom_eecae8f516da","manual":{"notes":"","archive":[]},"plus_date":"16.06.26","plus_version":"3.0.313.0.WPRCNXM","free_version":"3.0.313.0.WPRCNXM"},"poco_f7_pro":{"free_rom_id":"rom_6bdb51b713b9","plus_rom_id":"rom_2c9ad62aeee4","manual":{"notes":"","archive":[]},"plus_date":"16.06.26","plus_version":"3.0.303.0.WOKCNXM","free_version":"3.0.303.0.WOKCNXM"},"poco_f7":{"free_rom_id":"rom_1f9b23c24f9a","plus_rom_id":"rom_c0c44a8659c5","manual":{"notes":"","archive":[]},"plus_date":"16.06.26","plus_version":"3.0.303.0.WOLCNXM","free_version":"3.0.303.0.WOLCNXM"},"poco_f6_pro":{"free_rom_id":"rom_1c47429f39f7","plus_rom_id":"rom_519925e80f88","manual":{"notes":"","archive":[]},"plus_date":"16.06.26","plus_version":"3.0.303.0.WNKCNXM","free_version":"3.0.303.0.WNKCNXM"},"xiaomi_14_ultra":{"free_rom_id":"rom_c48ceba2094f","plus_rom_id":"rom_fb414f599235","manual":{"notes":"","archive":[]},"plus_date":"16.06.26","plus_version":"3.0.304.0.WNACNXM","free_version":"3.0.304.0"},"redmi_note_14_pro_plus_5g":{"free_rom_id":"rom_7bf25c754752","plus_rom_id":"rom_8f6f11bdb937","manual":{"notes":"","archive":[]},"plus_date":"16.06.26","plus_version":"3.0.303.0.WOPCNXM","free_version":"3.0.303.0.WOPCNXM"},"xiaomi_14":{"free_rom_id":"rom_9da29122b266","plus_rom_id":"rom_6896c8038387","manual":{"notes":"","archive":[]},"plus_date":"16.06.26","plus_version":"3.0.302.0.WNCCNXM","free_version":"3.0.9.0"},"poco_x3_pro":{"free_rom_id":"rom_35924bbc5ea3","plus_rom_id":"rom_82ecd910698f","manual":{"notes":"","archive":[]},"plus_date":"16.06.26","plus_version":"3.0.303.0.WNKCNXM","free_version":"3.0.9.0"},"redmi_note_10_pro":{"free_rom_id":"rom_18acf1f60b3d","plus_rom_id":"rom_6bfa83096a3f","manual":{"notes":"","archive":[]},"plus_date":"16.06.26","plus_version":"3.0.303.0.WNKCNXM","free_version":"3.0.9.0"},"poco_f7_ultra":{"free_rom_id":"rom_111869fabb82","plus_rom_id":"rom_04d7c8cb16be","manual":{"notes":"","archive":[]},"plus_date":"16.06.26","plus_version":"3.0.303.0.WNKCNXM","free_version":"3.0.303.0.WNKCNXM"},"xiaomi_13_pro":{"free_rom_id":"rom_659acbad0c95","plus_rom_id":"rom_fff98f4248b8","manual":{"notes":"","archive":[]},"plus_date":"16.06.26","plus_version":"3.0.303.0.WNKCNXM","free_version":"3.0.303.0.WNKCNXM"},"xiaomi_12_pro":{"free_rom_id":"rom_bddae6b5a656","plus_rom_id":"rom_241834f39aa6","manual":{"notes":"","archive":[]},"plus_date":"16.06.26","plus_version":"3.0.303.0.WNKCNXM","free_version":"3.0.303.0.WNKCNXM"},"xiaomi_12":{"free_rom_id":"rom_c0a78802463a","plus_rom_id":"rom_ac2b671bfbde","manual":{"notes":"","archive":[]},"plus_date":"16.06.26","plus_version":"3.0.303.0.WNKCNXM","free_version":"3.0.303.0.WNKCNXM"},"xiaomi_12s_ultra":{"free_rom_id":"rom_5d9e8f664656","plus_rom_id":"rom_965f4e5c616d","manual":{"notes":"","archive":[]},"plus_date":"16.06.26","plus_version":"3.0.303.0.WNKCNXM","free_version":"3.0.303.0.WNKCNXM"},"xiaomi_12_lite":{"free_rom_id":"rom_a94e17e91c29","plus_rom_id":"rom_5bec8ab80d30","manual":{"notes":"","archive":[]},"plus_date":"16.06.26","plus_version":"3.0.303.0.WNKCNXM","free_version":"3.0.303.0.WNKCNXM"},"poco_f5_pro":{"free_rom_id":"rom_fd2196684505","plus_rom_id":"rom_eb5f8c716a70","manual":{"notes":"","archive":[]},"plus_date":"16.06.26","plus_version":"3.0.303.0.WNKCNXM","free_version":"3.0.303.0.WNKCNXM"},"poco_f5":{"free_rom_id":"rom_517596e20fbf","plus_rom_id":"rom_c35379d7cd22","manual":{"notes":"","archive":[]},"plus_date":"16.06.26","plus_version":"3.0.303.0.WNKCNXM","free_version":"3.0.303.0.WNKCNXM"},"poco_x5_pro_5g":{"free_rom_id":"rom_7b9676a66d04","plus_rom_id":"rom_1034ac9d4c6f","manual":{"notes":"","archive":[]},"plus_date":"16.06.26","plus_version":"3.0.303.0.WNKCNXM","free_version":"3.0.303.0.WNKCNXM"},"poco_f4":{"free_rom_id":"rom_3db472893e67","plus_rom_id":"rom_44330d2d4c88","manual":{"notes":"","archive":[]},"plus_date":"16.06.26","plus_version":"3.0.303.0.WNKCNXM","free_version":"3.0.303.0.WNKCNXM"},"redmi_note_12_4g":{"free_rom_id":"rom_5ea38a212af8","plus_rom_id":"rom_389a613ea375","manual":{"notes":"","archive":[]},"plus_date":"16.06.26","plus_version":"3.0.303.0.WNKCNXM","free_version":"3.0.303.0.WNKCNXM"},"redmi_note_11_pro_5g":{"free_rom_id":"rom_881604b71256","plus_rom_id":"rom_f2b3bbc80ec3","manual":{"notes":"","archive":[]},"plus_date":"16.06.26","plus_version":"3.0.303.0.WNKCNXM","free_version":"3.0.303.0.WNKCNXM"},"mi_10":{"free_rom_id":"rom_2439e6c41354","plus_rom_id":"rom_1661f5d6575f","manual":{"notes":"","archive":[]},"plus_date":"16.06.26","plus_version":"3.0.303.0","free_version":"3.0.9.0"},"poco_f8_ultra":{"free_rom_id":"rom_420edda489df","plus_rom_id":"rom_2cf5de11b74f","manual":{"notes":"","archive":[]},"free_version":"3.0.303.0.WPMCNXM","plus_date":"16.06.26","plus_version":"3.0.303.0.WPMCNXM"},"poco_f4_gt":{"free_rom_id":"rom_8edf40886a61","plus_rom_id":"rom_9f2cb1e69cc6","manual":{"notes":"","archive":[]},"plus_date":"17.05.26","plus_version":"3.0.9.0","free_version":"3.0.9.0"},"poco_f3":{"free_rom_id":"rom_7909b15aa244","plus_rom_id":"rom_7808c3570820","manual":{"notes":"","archive":[]},"plus_date":"17.05.26","plus_version":"3.0.9.0","free_version":"3.0.9.0"},"mi_10t_pro":{"free_rom_id":"rom_85b5c92d2d48","plus_rom_id":"rom_295baf5eb6b6","manual":{"notes":"","archive":[]},"plus_date":"17.05.26","plus_version":"3.0.9.0","free_version":"3.0.9.0"}},"screenshot_posts":{}}</script>
+  <script>
+    let currentLang = 'ru';
+    let state = null;
+
+    const I18N = {
+      ru: {
+        free_version: 'Free версия',
+        plus_version: 'Plus версия',
+        plus_release: 'от',
+        download: 'Скачать',
+        changelog: 'Список изменений',
+        price: 'Цена',
+        discount_if: 'при наличии PLUS от',
+        no_roms: 'Нет доступных прошивок',
+        official: 'Официальная',
+        port: 'Порт',
+        off_short: 'Офиц.',
+        port_short: 'Порт'
+      },
+      en: {
+        free_version: 'Free version',
+        plus_version: 'Plus version',
+        plus_release: 'from',
+        download: 'Download',
+        changelog: 'Changelog',
+        price: 'Price',
+        discount_if: 'with PLUS from',
+        no_roms: 'No firmware available',
+        official: 'Official',
+        port: 'Port',
+        off_short: 'Off.',
+        port_short: 'Port'
+      }
+    };
+
+    function formatDate(raw) {
+      if (!raw) return '';
+      var m = raw.match(/^(\d{4})-(\d{2})-(\d{2})/);
+      if (m) return m[3] + '.' + m[2] + '.' + m[1].slice(2);
+      return raw.slice(0, 10);
+    }
+
+    function formatDateLong(raw) {
+      if (!raw) return '';
+      var m = raw.match(/^(\d{4})-(\d{2})-(\d{2})/);
+      if (m) return m[3] + '.' + m[2] + '.' + m[1];
+      return raw.slice(0, 10);
+    }
+
+    function deviceImageHtml(deviceId, name) {
+      return '<img src="assets/images/devices/' + deviceId + '.png" alt="' + name.replace(/"/g, '&quot;') + '" class="w-full h-full object-contain"/>';
+    }
+
+    function esc(s) {
+      if (!s) return '';
+      return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;');
+    }
+
+    function renderCard(device, freeRom, plusRom, lang) {
+      var name = esc(device.name);
+      var devId = esc(device.id);
+      var category = device.category || 'port';
+      var t = I18N[lang];
+      var catLabel = category === 'official' ? t.off_short : t.port_short;
+      var catColors = category === 'official'
+        ? 'bg-blue-500/15 text-blue-400 border-blue-500/20'
+        : 'bg-purple-500/15 text-purple-400 border-purple-500/20';
+
+      var badges = '';
+      if (freeRom) {
+        badges += '<span class="inline-flex items-center gap-1 text-[9px] lg:text-[10px] font-medium bg-teal-500/15 text-teal-400 border border-teal-500/20 px-1 py-0.5 lg:px-1.5 rounded"><span class="w-1 h-1 rounded-full bg-teal-400"></span>Free</span>';
+      }
+      if (plusRom) {
+        badges += ' <span class="inline-flex items-center gap-1 text-[9px] lg:text-[10px] font-medium bg-orange-500/15 border border-orange-500/20 px-1 py-0.5 lg:px-1.5 rounded"><span class="w-1 h-1 rounded-full bg-orange-400"></span><span class="plus-gradient-text">Plus</span></span>';
+      }
+
+      var fv = freeRom ? freeRom.version : null;
+      var pv = plusRom ? plusRom.version : null;
+      var verParts = [];
+      if (fv && pv && fv === pv) {
+        verParts.push('<span class="version-gradient-text">' + esc(fv) + '</span>');
+      } else {
+        if (fv) verParts.push('<span class="text-teal-400/80">' + esc(fv) + '</span>');
+        if (pv) verParts.push('<span class="text-orange-400/80">' + esc(pv) + '</span>');
+      }
+      var versionLine = '';
+      if (verParts.length) {
+        var sep = '<span class="text-slate-600 mx-0.5 lg:mx-1">|</span>';
+        versionLine = '<div class="text-[10px] sm:text-[11px] lg:text-xs font-mono mt-1 truncate">' + verParts.join(sep) + '</div>';
+      }
+
+      return '<div class="device-card relative bg-slate-800/60 border border-slate-700/40 rounded-2xl overflow-hidden cursor-pointer hover:border-slate-600/60 transition-all hover:shadow-xl hover:shadow-black/30 hover:-translate-y-0.5 group"'
+        + ' data-category="' + esc(category) + '" data-name="' + name.toLowerCase() + '" data-dev-id="' + devId + '" onclick="openModal(\'' + devId + '\')">'
+        + '<div class="relative aspect-square bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center overflow-hidden">'
+        + '<div class="absolute inset-0 flex items-center justify-center pt-2 overflow-hidden group-hover:scale-110 transition-transform duration-300 ease-out">'
+        + deviceImageHtml(devId, device.name)
+        + '</div>'
+        + '<div class="absolute top-2 left-2 flex gap-1 z-10">'
+        + '<span class="text-[9px] lg:text-[10px] font-medium px-1 py-0.5 lg:px-1.5 rounded border ' + catColors + ' backdrop-blur-sm">' + catLabel + '</span>'
+        + '</div>'
+        + '<div class="absolute top-2 right-2 flex gap-1 z-10">'
+        + badges
+        + '</div>'
+        + '<div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900/90 via-slate-900/50 to-transparent p-3 pt-8">'
+        + '<h3 class="text-slate-100 font-semibold text-xs sm:text-sm lg:text-base leading-tight truncate">' + name + '</h3>'
+        + versionLine
+        + '</div></div></div>';
+    }
+
+    function renderModal(device, freeRom, plusRom, lang) {
+      var devId = esc(device.id);
+      var name = esc(device.name);
+      var category = device.category || 'port';
+      var t = I18N[lang];
+      var catLabel = category === 'official' ? t.official : t.port;
+      var catColors = category === 'official'
+        ? 'bg-blue-500/20 text-blue-400'
+        : 'bg-purple-500/20 text-purple-400';
+
+      var freeSection = '';
+      if (freeRom) {
+        var ver = esc(freeRom.version || '');
+        var date = formatDateLong(freeRom.date || '');
+        var dl = esc(freeRom.download_link || '');
+        var cl = esc(freeRom.changelog_link || '');
+        var dlLink = dl ? '<a href="' + dl + '" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 bg-teal-500/10 text-teal-400 hover:bg-teal-500/20 px-3 py-1.5 rounded-lg text-sm font-medium transition-colors"><svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"/></svg>' + t.download + '</a>' : '';
+        var clLink = cl ? '<a href="' + cl + '" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 bg-slate-700/50 text-slate-300 hover:bg-slate-700 px-3 py-1.5 rounded-lg text-sm font-medium transition-colors"><svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>' + t.changelog + '</a>' : '';
+        freeSection = '<div class="bg-slate-800/50 rounded-xl p-4 border border-slate-700/30">'
+          + '<div class="flex items-center gap-2 mb-3">'
+          + '<div class="w-2 h-2 rounded-full bg-teal-400"></div>'
+          + '<span class="text-teal-400 font-semibold text-sm">' + t.free_version + '</span></div>'
+          + '<div class="text-slate-200 font-mono text-lg mb-1">' + ver + '</div>'
+          + '<div class="text-slate-500 text-xs mb-3">' + date + '</div>'
+          + '<div class="flex items-center gap-2 flex-wrap">' + dlLink + clLink + '</div></div>';
+      }
+
+      var plusSection = '';
+      if (plusRom) {
+        var ver = esc(plusRom.version || '');
+        var date = formatDateLong(plusRom.date || '');
+        var plusDate = plusRom.plus_date || '';
+        var priceVal = plusRom.price;
+        var discountPrice = plusRom.discount_price;
+        var discountCond = plusRom.discount_condition;
+        var priceParts = [];
+        if (priceVal) {
+          var part = priceVal + '&#8381;';
+          if (discountPrice && discountCond) {
+            part += ' (' + discountPrice + '&#8381; ' + t.discount_if + ' ' + esc(discountCond) + ')';
+          }
+          priceParts.push(part);
+        }
+        var priceStr = priceParts.join(' | ');
+        var priceHtml = priceStr ? '<span class="text-orange-400 font-semibold">' + t.price + ': ' + priceStr + '</span>' : '';
+        var clPlus = esc(plusRom.changelog_link || '');
+        var clPlusLink = clPlus ? '<a href="' + clPlus + '" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 bg-slate-700/50 text-slate-300 hover:bg-slate-700 px-3 py-1.5 rounded-lg text-sm font-medium transition-colors"><svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>' + t.changelog + '</a>' : '';
+        var verDisplay = plusDate ? ver + ' ' + t.plus_release + ' ' + plusDate : ver;
+        plusSection = '<div class="bg-slate-800/50 rounded-xl p-4 border border-orange-500/20">'
+          + '<div class="flex items-center gap-2 mb-3">'
+          + '<span class="plus-gradient-text font-bold text-sm">' + t.plus_version + '</span></div>'
+          + '<div class="text-slate-200 font-mono text-lg mb-1">' + esc(verDisplay) + '</div>'
+          + '<div class="text-slate-500 text-xs mb-3">' + date + '</div>'
+          + '<div>' + priceHtml + '</div>'
+          + '<div class="flex items-center gap-2 flex-wrap mt-3">' + clPlusLink + '</div></div>';
+      }
+
+      var noRoms = '';
+      if (!freeRom && !plusRom) {
+        noRoms = '<div class="text-slate-500 text-sm italic text-center py-4">' + t.no_roms + '</div>';
+      }
+
+      return '<div class="modal-content hidden fixed inset-0 z-50 flex items-center justify-center p-4" data-modal="' + devId + '">'
+        + '<div class="modal-backdrop absolute inset-0 bg-black/70 backdrop-blur-sm" onclick="closeModal(\'' + devId + '\')"></div>'
+        + '<div class="relative bg-slate-900 border border-slate-700/50 rounded-2xl w-full max-w-lg max-h-[85vh] overflow-y-auto shadow-2xl">'
+        + '<button class="absolute top-4 right-4 text-slate-500 hover:text-slate-300 transition-colors z-10" onclick="closeModal(\'' + devId + '\')">'
+        + '<svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>'
+        + '</button>'
+        + '<div class="p-6">'
+        + '<div class="flex items-center gap-4 mb-6">'
+        + '<div class="w-20 h-20 shrink-0 rounded-2xl overflow-hidden bg-slate-800">'
+        + deviceImageHtml(devId, device.name)
+        + '</div>'
+        + '<div>'
+        + '<h2 class="text-xl font-bold text-slate-100">' + name + '</h2>'
+        + '<span class="inline-block mt-1 text-xs font-medium px-2 py-0.5 rounded-md ' + catColors + '">' + catLabel + '</span>'
+        + '</div></div>'
+        + '<div class="space-y-3">'
+        + freeSection + plusSection + noRoms
+        + '</div></div></div></div>';
+    }
+
+    function build(lang, devices, deviceRomsMap, romsById) {
+      var cardsHtml = [];
+      var modalsHtml = [];
+      for (var i = 0; i < devices.length; i++) {
+        var device = devices[i];
+        var devId = device.id;
+        var mapping = deviceRomsMap[devId];
+        var freeRom = mapping && mapping.free_rom_id ? romsById[mapping.free_rom_id] : null;
+        var plusRom = mapping && mapping.plus_rom_id ? romsById[mapping.plus_rom_id] : null;
+        cardsHtml.push(renderCard(device, freeRom, plusRom, lang));
+        modalsHtml.push(renderModal(device, freeRom, plusRom, lang));
+      }
+      document.getElementById('cards-' + lang).innerHTML = cardsHtml.join('\n');
+      document.getElementById('modals-' + lang).innerHTML = modalsHtml.join('\n');
+    }
+
+    function buildAll() {
+      if (!state) return;
+      var devices = state.devices || [];
+      var deviceRomsMap = state.device_roms || {};
+      var romsList = state.roms || [];
+      var meta = state.meta || {};
+
+      var romsById = {};
+      for (var i = 0; i < romsList.length; i++) {
+        romsById[romsList[i].id] = romsList[i];
+      }
+
+      function deviceLatestDate(dev) {
+        var devId = dev.id;
+        var mapping = deviceRomsMap[devId];
+        if (!mapping) return '';
+        var dates = [];
+        var keys = ['free_rom_id', 'plus_rom_id'];
+        for (var k = 0; k < keys.length; k++) {
+          var rid = mapping[keys[k]];
+          if (rid && romsById[rid]) {
+            var d = romsById[rid].date || '';
+            if (d) dates.push(d);
+          }
+        }
+        return dates.length ? dates.reduce(function(a,b){return a>b?a:b;}) : '';
+      }
+
+      devices = devices.slice().sort(function(a, b) {
+        var da = deviceLatestDate(a);
+        var db = deviceLatestDate(b);
+        if (da > db) return -1;
+        if (da < db) return 1;
+        return 0;
+      });
+
+      var lastUpdate = formatDate(meta.last_update || '');
+      document.getElementById('last-update-ru').textContent = lastUpdate;
+      document.getElementById('last-update-en').textContent = lastUpdate;
+
+      build('ru', devices, deviceRomsMap, romsById);
+      build('en', devices, deviceRomsMap, romsById);
+
+      // Apply current filters after building
+      ['ru', 'en'].forEach(function(lang) {
+        var container = document.getElementById('filters-' + lang);
+        if (!container) return;
+        var activeBtn = container.querySelector('.filter-btn.active');
+        if (activeBtn) {
+          applyFilters(activeBtn.dataset.filter, document.getElementById('search-' + lang).value, lang);
+        }
+      });
+    }
+
+    // Load state
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.__STATE__) {
+        state = window.__STATE__;
+        buildAll();
+      } else {
+        fetch('state.json')
+          .then(function(r) { return r.json(); })
+          .then(function(data) {
+            state = data;
+            buildAll();
+          })
+          .catch(function(err) {
+            console.error('Failed to load state.json:', err);
+            document.getElementById('cards-ru').innerHTML = '<div class="col-span-full text-center text-slate-500 py-16">Ошибка загрузки данных</div>';
+            document.getElementById('cards-en').innerHTML = '<div class="col-span-full text-center text-slate-500 py-16">Data load error</div>';
+          });
+      }
+    });
+
+    function switchLang(lang) {
+      currentLang = lang;
+      document.querySelectorAll('.lang-content').forEach(function(el) {
+        el.classList.toggle('active', el.dataset.lang === lang);
+      });
+      document.querySelectorAll('.lang-btn').forEach(function(btn) {
+        btn.classList.remove('active');
+      });
+      document.querySelectorAll('.lang-btn').forEach(function(btn) {
+        if ((lang === 'ru' && btn.textContent.trim() === 'RU') ||
+            (lang === 'en' && btn.textContent.trim() === 'EN')) {
+          btn.classList.add('active');
+        }
+      });
+      document.querySelectorAll('.plus-lang-ru, .plus-lang-en').forEach(function(el) {
+        el.classList.add('hidden');
+      });
+      var plusLang = lang === 'ru' ? '.plus-lang-ru' : '.plus-lang-en';
+      document.querySelectorAll(plusLang).forEach(function(el) {
+        el.classList.remove('hidden');
+      });
+    }
+
+    function openModal(devId) {
+      var scope = document.querySelector('.lang-content[data-lang="' + currentLang + '"]');
+      var modal = scope ? scope.querySelector('[data-modal="' + devId + '"]') : document.querySelector('[data-modal="' + devId + '"]');
+      if (modal) {
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeModal(devId) {
+      var scope = document.querySelector('.lang-content[data-lang="' + currentLang + '"]');
+      var modal = scope ? scope.querySelector('[data-modal="' + devId + '"]') : document.querySelector('[data-modal="' + devId + '"]');
+      if (modal) {
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+    }
+
+    function openPlusModal() {
+      document.getElementById('plus-modal').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closePlusModal() {
+      var m = document.getElementById('plus-modal');
+      if (m) { m.classList.add('hidden'); document.body.style.overflow = ''; }
+    }
+
+    function filterCategory(btn, lang) {
+      var container = btn.closest('[id^="filters-"]');
+      container.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      applyFilters(btn.dataset.filter, document.getElementById('search-' + lang).value, lang);
+    }
+
+    function applyFilters(category, search, lang) {
+      var cards = document.querySelectorAll('#cards-' + lang + ' .device-card');
+      var visible = 0;
+      cards.forEach(function(card) {
+        var matchCat = category === 'all' || card.dataset.category === category;
+        var matchSearch = !search || card.dataset.name.includes(search.toLowerCase());
+        var show = matchCat && matchSearch;
+        card.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+      document.getElementById('no-results-' + lang).style.display = visible === 0 ? '' : 'none';
+    }
+
+    function clearSearch(lang) {
+      var input = document.getElementById('search-' + lang);
+      input.value = '';
+      input.focus();
+      var clearBtn = document.getElementById('clear-' + lang);
+      if (clearBtn) clearBtn.classList.add('hidden');
+      var container = document.getElementById('filters-' + lang);
+      var activeFilter = container.querySelector('.filter-btn.active');
+      applyFilters(activeFilter ? activeFilter.dataset.filter : 'all', '', lang);
+    }
+
+    function updateClearBtn(lang) {
+      var input = document.getElementById('search-' + lang);
+      var clearBtn = document.getElementById('clear-' + lang);
+      if (clearBtn) {
+        clearBtn.classList.toggle('hidden', !input.value);
+      }
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        var scope = document.querySelector('.lang-content[data-lang="' + currentLang + '"]');
+        if (scope) {
+          scope.querySelectorAll('.modal-content:not(.hidden)').forEach(function(m) {
+            closeModal(m.dataset.modal);
+          });
+        }
+        closePlusModal();
+      }
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+      ['ru', 'en'].forEach(function(lang) {
+        var input = document.getElementById('search-' + lang);
+        if (input) {
+          input.addEventListener('input', function() {
+            updateClearBtn(lang);
+            var container = document.getElementById('filters-' + lang);
+            var activeFilter = container.querySelector('.filter-btn.active');
+            applyFilters(activeFilter ? activeFilter.dataset.filter : 'all', this.value, lang);
+          });
+        }
+      });
+    });
+  </script>
+
+  <!-- Plus Modal -->
+  <div id="plus-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div class="absolute inset-0 bg-black/70 backdrop-blur-sm" onclick="closePlusModal()"></div>
+    <div class="relative bg-slate-900 border border-slate-700/50 rounded-2xl w-full max-w-lg max-h-[85vh] overflow-y-auto shadow-2xl">
+      <button class="absolute top-4 right-4 text-slate-500 hover:text-slate-300 transition-colors z-10" onclick="closePlusModal()">
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+      <div class="p-6">
+        <h2 class="text-xl font-bold text-slate-100 mb-1">TURBO OS Plus</h2>
+        <p class="plus-gradient-text font-semibold text-sm mb-4">HyperOS 3.0</p>
+
+        <div class="plus-lang-ru space-y-4 text-sm text-slate-300">
+          <div>
+            <h3 class="font-semibold text-slate-100 mb-1">Что такое Plus?</h3>
+            <p class="text-slate-400">Платная версия прошивки TURBO OS с дополнительными возможностями и оптимизациями. Основана на последней бесплатной (Free) версии для каждого устройства.</p>
+          </div>
+          <div>
+            <h3 class="font-semibold text-slate-100 mb-1">Отличия от Free</h3>
+            <ul class="text-slate-400 space-y-1 list-disc list-inside">
+              <li>Дополнительные оптимизации производительности</li>
+              <li>Расширенные настройки</li>
+              <li>Приоритетная поддержка</li>
+              <li>Эксклюзивные обновления</li>
+            </ul>
+          </div>
+          <div class="border-t border-slate-700/50 pt-4">
+            <h3 class="font-semibold text-slate-100 mb-2">Как купить?</h3>
+            <div class="space-y-2">
+              <a href="http://t.me/EnOt15P" target="_blank" rel="noopener" class="flex items-center gap-3 bg-slate-800/60 rounded-xl px-4 py-3 hover:bg-slate-800 transition-all">
+                <svg class="w-5 h-5 text-cyan-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.076-4.076a1.526 1.526 0 011.037-.443 48.282 48.282 0 005.68-.494c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z"/></svg>
+                <div><div class="text-xs font-medium text-slate-200">Написать автору</div><div class="text-[10px] text-slate-500">@EnOt15P в Telegram</div></div>
+              </a>
+              <a href="https://www.donationalerts.com/r/turbohyperosplus" target="_blank" rel="noopener" class="flex items-center gap-3 bg-slate-800/60 rounded-xl px-4 py-3 hover:bg-slate-800 transition-all">
+                <div class="w-5 h-5 shrink-0 flex items-center justify-center"><span class="plus-gradient-text font-bold text-xs">P</span></div>
+                <div><div class="text-xs font-medium text-slate-200">DonateAlerts</div><div class="text-[10px] text-slate-500">СБП / Карта / ЮMoney</div></div>
+              </a>
+              <a href="https://yoomoney.ru/to/4100116522123030" target="_blank" rel="noopener" class="flex items-center gap-3 bg-slate-800/60 rounded-xl px-4 py-3 hover:bg-slate-800 transition-all">
+                <div class="w-5 h-5 shrink-0 flex items-center justify-center"><span class="text-yellow-400 font-bold text-xs">Y</span></div>
+                <div><div class="text-xs font-medium text-slate-200">ЮMoney</div><div class="text-[10px] text-slate-500">4100 1165 2212 3030</div></div>
+              </a>
+            </div>
+          </div>
+          <div class="border-t border-slate-700/50 pt-4">
+            <h3 class="font-semibold text-slate-100 mb-1">Способы оплаты</h3>
+            <p class="text-slate-400 text-xs">Доступна оплата через СБП и через номер карты без комиссии. Криптовалюта (USDT) - информация у автора в ЛС.</p>
+          </div>
+        </div>
+
+        <div class="plus-lang-en hidden space-y-4 text-sm text-slate-300">
+          <div>
+            <h3 class="font-semibold text-slate-100 mb-1">What is Plus?</h3>
+            <p class="text-slate-400">Paid version of TURBO OS firmware with additional features and optimizations. Built on the latest free (Free) version for each device.</p>
+          </div>
+          <div>
+            <h3 class="font-semibold text-slate-100 mb-1">Differences from Free</h3>
+            <ul class="text-slate-400 space-y-1 list-disc list-inside">
+              <li>Additional performance optimizations</li>
+              <li>Extended settings</li>
+              <li>Priority support</li>
+              <li>Exclusive updates</li>
+            </ul>
+          </div>
+          <div class="border-t border-slate-700/50 pt-4">
+            <h3 class="font-semibold text-slate-100 mb-2">How to buy?</h3>
+            <div class="space-y-2">
+              <a href="http://t.me/EnOt15P" target="_blank" rel="noopener" class="flex items-center gap-3 bg-slate-800/60 rounded-xl px-4 py-3 hover:bg-slate-800 transition-all">
+                <svg class="w-5 h-5 text-cyan-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.076-4.076a1.526 1.526 0 011.037-.443 48.282 48.282 0 005.68-.494c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z"/></svg>
+                <div><div class="text-xs font-medium text-slate-200">Message the author</div><div class="text-[10px] text-slate-500">@EnOt15P on Telegram</div></div>
+              </a>
+              <a href="https://www.donationalerts.com/r/turbohyperosplus" target="_blank" rel="noopener" class="flex items-center gap-3 bg-slate-800/60 rounded-xl px-4 py-3 hover:bg-slate-800 transition-all">
+                <div class="w-5 h-5 shrink-0 flex items-center justify-center"><span class="plus-gradient-text font-bold text-xs">P</span></div>
+                <div><div class="text-xs font-medium text-slate-200">DonateAlerts</div><div class="text-[10px] text-slate-500">SBP / Card / YuMoney</div></div>
+              </a>
+              <a href="https://yoomoney.ru/to/4100116522123030" target="_blank" rel="noopener" class="flex items-center gap-3 bg-slate-800/60 rounded-xl px-4 py-3 hover:bg-slate-800 transition-all">
+                <div class="w-5 h-5 shrink-0 flex items-center justify-center"><span class="text-yellow-400 font-bold text-xs">Y</span></div>
+                <div><div class="text-xs font-medium text-slate-200">YuMoney</div><div class="text-[10px] text-slate-500">4100 1165 2212 3030</div></div>
+              </a>
+            </div>
+          </div>
+          <div class="border-t border-slate-700/50 pt-4">
+            <h3 class="font-semibold text-slate-100 mb-1">Payment methods</h3>
+            <p class="text-slate-400 text-xs">Available via SBP and card transfer with no commission. Cryptocurrency (USDT) - contact author via DM.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
