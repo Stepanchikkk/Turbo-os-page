@@ -1,6 +1,7 @@
 node_modules/
 .env
 opencode.json
+AGENTS.md
 
 # Python
 __pycache__/
