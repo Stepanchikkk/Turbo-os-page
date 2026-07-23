@@ -1,5 +1,5 @@
 import React from 'react';
-import { ToggleButtonGroup, ToggleButton, Box, Typography } from '@mui/material';
+import { ToggleButtonGroup, ToggleButton, Box, Chip } from '@mui/material';
 import { useI18n } from '../i18n';
 
 const filters = [
@@ -18,34 +18,39 @@ export default function FilterTabs({ value, onChange }) {
   };
 
   return (
-    <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap', alignItems: 'center' }}>
+    <ToggleButtonGroup
+      value={value}
+      exclusive
+      onChange={(_, v) => v && onChange(v)}
+      size="small"
+      sx={{
+        '& .MuiToggleButton-root': {
+          textTransform: 'none',
+          border: '1px solid',
+          borderColor: 'rgba(148,163,184,0.2)',
+          borderRadius: '12px !important',
+          px: 1.5,
+          py: 0.75,
+          fontSize: '0.75rem',
+          fontWeight: 500,
+          color: '#94a3b8',
+          bgcolor: 'transparent',
+          '&.Mui-selected': {
+            bgcolor: 'rgba(20,184,166,0.1)',
+            color: '#2dd4bf',
+            borderColor: 'rgba(20,184,166,0.3)',
+            '&:hover': { bgcolor: 'rgba(20,184,166,0.15)' },
+          },
+          '&:hover': { color: '#e2e8f0' },
+        },
+      }}
+    >
       {filters.map((f) => (
-        <Box
-          key={f.value}
-          component="button"
-          onClick={() => onChange(f.value)}
-          sx={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: 0.75,
-            px: 1.5,
-            py: 0.75,
-            borderRadius: 2,
-            border: '1px solid',
-            borderColor: value === f.value ? 'rgba(20,184,166,0.3)' : 'rgba(148,163,184,0.2)',
-            bgcolor: value === f.value ? 'rgba(20,184,166,0.1)' : 'transparent',
-            color: value === f.value ? '#2dd4bf' : '#94a3b8',
-            fontSize: '0.75rem',
-            fontWeight: 500,
-            cursor: 'pointer',
-            transition: 'all 0.15s',
-            '&:hover': { color: '#e2e8f0' },
-          }}
-        >
-          {f.color && <Box sx={{ width: 6, height: 6, borderRadius: '50%', bgcolor: f.color }} />}
+        <ToggleButton key={f.value} value={f.value}>
+          {f.color && <Box component="span" sx={{ width: 6, height: 6, borderRadius: '50%', bgcolor: f.color, mr: 0.75 }} />}
           {labels[f.value]}
-        </Box>
+        </ToggleButton>
       ))}
-    </Box>
+    </ToggleButtonGroup>
   );
 }

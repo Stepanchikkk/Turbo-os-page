@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography, Link, Chip, Button } from '@mui/material';
+import { Box, Typography, Link, Chip, Button, IconButton } from '@mui/material';
 import { useI18n } from '../i18n';
 import { formatDate } from '../data/state';
 import TelegramIcon from '@mui/icons-material/Telegram';
@@ -105,67 +105,70 @@ export default function Header({ meta, onOpenPlus }) {
         </Box>
       </Box>
 
-      <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr 1fr', sm: '1fr 1fr 1fr 1fr' }, gap: 1.5 }}>
+      <Box
+        sx={{
+          display: 'grid',
+          gridTemplateColumns: { xs: '1fr 1fr', sm: '1fr 1fr 1fr 1fr' },
+          gap: 1.5,
+        }}
+      >
         {links.map((link) => {
           const Icon = link.icon;
           return (
-            <Box
-              component="a"
+            <Button
               key={link.href}
+              component="a"
               href={link.href}
               target="_blank"
               rel="noopener"
+              startIcon={<Icon />}
               sx={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: 1,
+                justifyContent: 'flex-start',
                 bgcolor: 'rgba(30,41,59,0.6)',
                 border: '1px solid',
                 borderColor: 'rgba(148,163,184,0.12)',
                 borderRadius: 2,
                 px: 2,
                 py: 1.5,
-                textDecoration: 'none',
-                transition: 'all 0.2s',
+                color: '#94a3b8',
+                textTransform: 'none',
                 '&:hover': {
                   borderColor: `${link.color}80`,
                   bgcolor: `${link.color}08`,
+                  color: '#cbd5e1',
                 },
               }}
             >
-              <Icon sx={{ color: link.color, fontSize: 20, flexShrink: 0 }} />
-              <Typography variant="caption" sx={{ color: '#94a3b8', fontSize: '0.75rem', 'a:hover &': { color: '#cbd5e1' } }}>
+              <Typography variant="caption" sx={{ fontSize: '0.75rem' }}>
                 {t[link.labelKey]}
               </Typography>
-            </Box>
+            </Button>
           );
         })}
-        <Box
-          component="button"
+        <Button
           onClick={onOpenPlus}
+          startIcon={<WorkspacePremiumIcon />}
           sx={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: 1,
+            justifyContent: 'flex-start',
             bgcolor: 'rgba(30,41,59,0.6)',
             border: '1px solid',
             borderColor: 'rgba(148,163,184,0.12)',
             borderRadius: 2,
             px: 2,
             py: 1.5,
-            cursor: 'pointer',
-            transition: 'all 0.2s',
+            color: '#94a3b8',
+            textTransform: 'none',
             '&:hover': {
               borderColor: 'rgba(249,115,22,0.3)',
               bgcolor: 'rgba(249,115,22,0.05)',
+              color: '#cbd5e1',
             },
           }}
         >
-          <WorkspacePremiumIcon sx={{ color: '#fb923c', fontSize: 20, flexShrink: 0 }} />
-          <Typography variant="caption" sx={{ color: '#94a3b8', fontSize: '0.75rem' }}>
+          <Typography variant="caption" sx={{ fontSize: '0.75rem' }}>
             {t.buy_plus}
           </Typography>
-        </Box>
+        </Button>
       </Box>
     </Box>
   );

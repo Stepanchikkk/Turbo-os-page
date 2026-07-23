@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography, Link } from '@mui/material';
+import { Card, CardContent, Grid, Typography, Link, Box } from '@mui/material';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { useI18n } from '../i18n';
 
@@ -8,7 +8,6 @@ const supportItems = [
     href: 'https://yoomoney.ru/to/4100116522123030',
     icon: 'Y',
     iconColor: '#facc15',
-    iconBg: 'rgba(100,116,139,0.5)',
     title: 'ЮMoney',
     subtitle: '4100 1165 2212 3030',
   },
@@ -16,7 +15,6 @@ const supportItems = [
     href: 'https://www.donationalerts.com/r/turbohyperosplus',
     icon: 'D',
     iconColor: '#f87171',
-    iconBg: 'rgba(100,116,139,0.5)',
     title: 'DonateAlerts',
     subtitleKeyRu: 'СБП / Карта',
     subtitleKeyEn: 'SBP / Card',
@@ -25,7 +23,6 @@ const supportItems = [
     href: 'http://t.me/EnOt15P',
     icon: null,
     iconColor: '#22d3ee',
-    iconBg: 'rgba(100,116,139,0.5)',
     titleKey: 'message_author',
     subtitleKeyRu: 'USDT / Перевод',
     subtitleKeyEn: 'USDT / Transfer',
@@ -34,7 +31,6 @@ const supportItems = [
     href: 'https://t.me/TURBOromMiui/67',
     icon: null,
     iconColor: '#94a3b8',
-    iconBg: 'rgba(100,116,139,0.5)',
     title: 'Info',
     subtitleKeyRu: 'Реквизиты',
     subtitleKeyEn: 'Details',
@@ -45,22 +41,21 @@ export default function SupportSection() {
   const { lang, t } = useI18n();
 
   return (
-    <Box sx={{ mt: 4, mb: 2 }}>
-      <Box sx={{ borderRadius: 2, border: '1px solid', borderColor: 'rgba(148,163,184,0.12)', overflow: 'hidden' }}>
-        <Box sx={{ background: 'linear-gradient(90deg, rgba(239,68,68,0.08), rgba(249,115,22,0.08), rgba(234,179,8,0.08))', p: { xs: 2, sm: 3 } }}>
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mb: 2 }}>
-            <Box sx={{ width: 40, height: 40, borderRadius: 1.5, bgcolor: 'rgba(30,41,59,0.8)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <FavoriteIcon sx={{ color: '#fb923c', fontSize: 20 }} />
-            </Box>
-            <Box>
-              <Typography variant="body2" sx={{ color: '#f1f5f9', fontWeight: 600 }}>{t.support_title}</Typography>
-              <Typography variant="caption" sx={{ color: '#94a3b8' }}>{t.support_desc}</Typography>
-            </Box>
+    <Card sx={{ mt: 4, mb: 2, border: '1px solid', borderColor: 'rgba(148,163,184,0.12)', borderRadius: 2 }}>
+      <CardContent sx={{ background: 'linear-gradient(90deg, rgba(239,68,68,0.08), rgba(249,115,22,0.08), rgba(234,179,8,0.08))', p: { xs: 2, sm: 3 }, '&:last-child': { pb: { xs: 2, sm: 3 } } }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mb: 2 }}>
+          <Box sx={{ width: 40, height: 40, borderRadius: 1.5, bgcolor: 'rgba(30,41,59,0.8)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <FavoriteIcon sx={{ color: '#fb923c', fontSize: 20 }} />
           </Box>
-          <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr 1fr', sm: '1fr 1fr 1fr 1fr' }, gap: 1 }}>
-            {supportItems.map((item) => (
+          <Box>
+            <Typography variant="body2" sx={{ color: '#f1f5f9', fontWeight: 600 }}>{t.support_title}</Typography>
+            <Typography variant="caption" sx={{ color: '#94a3b8' }}>{t.support_desc}</Typography>
+          </Box>
+        </Box>
+        <Grid container spacing={1}>
+          {supportItems.map((item) => (
+            <Grid key={item.href} size={{ xs: 12, sm: 6, md: 3 }}>
               <Link
-                key={item.href}
                 href={item.href}
                 target="_blank"
                 rel="noopener"
@@ -82,7 +77,7 @@ export default function SupportSection() {
                     width: 32,
                     height: 32,
                     borderRadius: 1,
-                    bgcolor: item.iconBg,
+                    bgcolor: 'rgba(100,116,139,0.5)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -106,10 +101,10 @@ export default function SupportSection() {
                   </Typography>
                 </Box>
               </Link>
-            ))}
-          </Box>
-        </Box>
-      </Box>
-    </Box>
+            </Grid>
+          ))}
+        </Grid>
+      </CardContent>
+    </Card>
   );
 }

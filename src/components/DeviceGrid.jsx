@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography } from '@mui/material';
+import { Grid, Typography, Box } from '@mui/material';
 import SearchOffIcon from '@mui/icons-material/SearchOff';
 import { useI18n } from '../i18n';
 import DeviceCard from './DeviceCard';
@@ -17,23 +17,17 @@ export default function DeviceGrid({ devices, deviceRomsMap, romsById, onSelect 
   }
 
   return (
-    <Box
-      sx={{
-        display: 'grid',
-        gridTemplateColumns: { xs: '1fr 1fr', sm: '1fr 1fr', lg: '1fr 1fr 1fr', xl: '1fr 1fr 1fr 1fr' },
-        gap: 2,
-        minHeight: 200,
-      }}
-    >
+    <Grid container spacing={2}>
       {devices.map((device) => (
-        <DeviceCard
-          key={device.id}
-          device={device}
-          freeRom={deviceRomsMap[device.id]?.free_rom_id ? romsById[deviceRomsMap[device.id].free_rom_id] : null}
-          plusRom={deviceRomsMap[device.id]?.plus_rom_id ? romsById[deviceRomsMap[device.id].plus_rom_id] : null}
-          onClick={() => onSelect(device)}
-        />
+        <Grid key={device.id} size={{ xs: 12, sm: 6, lg: 3 }}>
+          <DeviceCard
+            device={device}
+            freeRom={deviceRomsMap[device.id]?.free_rom_id ? romsById[deviceRomsMap[device.id].free_rom_id] : null}
+            plusRom={deviceRomsMap[device.id]?.plus_rom_id ? romsById[deviceRomsMap[device.id].plus_rom_id] : null}
+            onClick={() => onSelect(device)}
+          />
+        </Grid>
       ))}
-    </Box>
+    </Grid>
   );
 }
