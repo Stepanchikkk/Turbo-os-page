@@ -1,0 +1,7 @@
+node_modules/
+.env
+opencode.json
+
+# Python
+__pycache__/
+*.pyc
