@@ -17,13 +17,13 @@ export default function SearchBar({ value, onChange }) {
         input: {
           startAdornment: (
             <InputAdornment position="start">
-              <SearchIcon sx={{ color: '#64748b', fontSize: 18 }} />
+              <SearchIcon sx={{ color: '#64748b', fontSize: 16 }} />
             </InputAdornment>
           ),
           endAdornment: value ? (
             <InputAdornment position="end">
-              <IconButton size="small" onClick={() => onChange('')} sx={{ color: '#64748b' }}>
-                <CloseIcon fontSize="small" />
+              <IconButton size="small" onClick={() => onChange('')} sx={{ color: '#64748b', p: 0.25 }}>
+                <CloseIcon sx={{ fontSize: 16 }} />
               </IconButton>
             </InputAdornment>
           ) : null,
@@ -33,11 +33,12 @@ export default function SearchBar({ value, onChange }) {
         '& .MuiOutlinedInput-root': {
           bgcolor: 'rgba(30,41,59,0.8)',
           borderRadius: 2,
+          fontSize: '0.8125rem',
           '& fieldset': { borderColor: 'rgba(148,163,184,0.2)' },
           '&:hover fieldset': { borderColor: 'rgba(148,163,184,0.3)' },
           '&.Mui-focused fieldset': { borderColor: 'rgba(20,184,166,0.4)' },
         },
-        '& .MuiOutlinedInput-input': { color: '#f1f5f9', fontSize: '0.875rem' },
+        '& .MuiOutlinedInput-input': { color: '#f1f5f9', fontSize: '0.8125rem', py: '7px !important' },
       }}
     />
   );

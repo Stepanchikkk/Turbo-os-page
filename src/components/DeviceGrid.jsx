@@ -19,7 +19,7 @@ export default function DeviceGrid({ devices, deviceRomsMap, romsById, onSelect 
   return (
     <Grid container spacing={2}>
       {devices.map((device) => (
-        <Grid key={device.id} size={{ xs: 12, sm: 6, lg: 3 }}>
+        <Grid key={device.id} size={{ xs: 12, sm: 6, md: 4, lg: 3 }}>
           <DeviceCard
             device={device}
             freeRom={deviceRomsMap[device.id]?.free_rom_id ? romsById[deviceRomsMap[device.id].free_rom_id] : null}
