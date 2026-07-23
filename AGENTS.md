@@ -54,6 +54,16 @@ Create a GitHub Actions workflow file that triggers on a schedule every two hour
 Phase 5: Screenshots and Assets Integration
 Extend the fetcher module to monitor the screenshot channel. Implement a matching heuristic where if the screenshot post text contains a version string that matches a ROM version in the database, the screenshot post ID is bound to that ROM. If no exact match is found, use date matching within twenty-four hours as a fallback, but log this as low confidence in the output.
 
+## 📡 MCP Usage Rule (CRITICAL)
+Always use connected MCP servers for any lookup, documentation, or verification tasks. NEVER guess versions, APIs, or package details from training data. The available MCP servers are:
+
+- **MUI docs** (`@mui/mcp`): Fetch MUI component documentation, changelogs, version info, usage patterns
+- **npm registry** (`mcp-npm-registry`): Search packages, get versions, check vulnerabilities, download stats, READMEs
+- **React docs** (`react-docs-mcp`): Semantic search over react.dev documentation
+- **GitHub API** (`@modelcontextprotocol/server-github`): Read/write access to repos, commits, files, issues, PRs
+
+Before answering any question about a library, component, package, or API, use the relevant MCP server first to get accurate, up-to-date information.
+
 ## 🛑 Interaction Rules with the User
 Ask questions when uncertain. If parsing logic cannot reliably extract data from a specific post, stop, show the post to the user, and ask in Russian what logic should be applied.
 Show diffs. Before proposing changes to the state file or HTML file, show the user exactly what will be changed.
