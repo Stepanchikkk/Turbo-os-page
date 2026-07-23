@@ -37,17 +37,22 @@ export default function DeviceCard({ device, freeRom, plusRom, onClick }) {
   return (
     <Card
       sx={{
-        bgcolor: 'rgba(30,41,59,0.6)',
+        bgcolor: '#1e293b',
         border: '1px solid',
-        borderColor: 'rgba(148,163,184,0.15)',
+        borderColor: 'rgba(148,163,184,0.12)',
         borderRadius: 2,
         overflow: 'hidden',
         display: 'flex',
         flexDirection: 'column',
+        transition: 'border-color 0.2s ease, transform 0.2s ease',
+        '&:hover': {
+          borderColor: 'rgba(148,163,184,0.3)',
+          transform: 'translateY(-2px)',
+        },
       }}
     >
       <CardActionArea onClick={onClick} sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column', alignItems: 'stretch' }}>
-        <Box sx={{ position: 'relative', bgcolor: '#0f172a', height: 180 }}>
+        <Box sx={{ position: 'relative', bgcolor: '#0f172a', height: 220 }}>
           <CardMedia
             component="img"
             image={`assets/images/devices/${device.id}.webp`}
@@ -56,20 +61,31 @@ export default function DeviceCard({ device, freeRom, plusRom, onClick }) {
               width: '100%',
               height: '100%',
               objectFit: 'contain',
-              p: 1.5,
-              transition: 'transform 0.3s ease',
+              p: 2,
             }}
           />
         </Box>
-        <CardContent sx={{ p: 1.5, '&:last-child': { pb: 1.5 }, flexGrow: 1, display: 'flex', flexDirection: 'column', gap: 0.75 }}>
+        <CardContent sx={{ p: 1.75, '&:last-child': { pb: 1.75 }, flexGrow: 1, display: 'flex', flexDirection: 'column', gap: 1 }}>
+          <Typography
+            variant="subtitle2"
+            sx={{
+              color: '#f1f5f9',
+              fontWeight: 600,
+              fontSize: '0.875rem',
+              lineHeight: 1.3,
+            }}
+          >
+            {device.name}
+          </Typography>
+
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, flexWrap: 'wrap' }}>
             {brand && (
               <Chip
                 label={brand}
                 size="small"
                 sx={{
-                  height: 18,
-                  fontSize: '0.6rem',
+                  height: 20,
+                  fontSize: '0.65rem',
                   fontWeight: 600,
                   bgcolor: brandStyle.bg,
                   color: brandStyle.color,
@@ -83,8 +99,8 @@ export default function DeviceCard({ device, freeRom, plusRom, onClick }) {
               label={catLabel}
               size="small"
               sx={{
-                height: 18,
-                fontSize: '0.6rem',
+                height: 20,
+                fontSize: '0.65rem',
                 fontWeight: 500,
                 bgcolor: cat.bg,
                 color: cat.color,
@@ -98,8 +114,8 @@ export default function DeviceCard({ device, freeRom, plusRom, onClick }) {
                 label="Free"
                 size="small"
                 sx={{
-                  height: 18,
-                  fontSize: '0.6rem',
+                  height: 20,
+                  fontSize: '0.65rem',
                   fontWeight: 500,
                   bgcolor: 'rgba(20,184,166,0.15)',
                   color: '#2dd4bf',
@@ -114,58 +130,42 @@ export default function DeviceCard({ device, freeRom, plusRom, onClick }) {
                 label="Plus"
                 size="small"
                 sx={{
-                  height: 18,
-                  fontSize: '0.6rem',
+                  height: 20,
+                  fontSize: '0.65rem',
                   fontWeight: 500,
                   bgcolor: 'rgba(249,115,22,0.15)',
+                  color: '#fb923c',
                   border: '1px solid',
                   borderColor: 'rgba(249,115,22,0.2)',
-                  color: '#fb923c',
                   '& .MuiChip-label': { px: 0.75 },
                 }}
               />
             )}
           </Box>
-          <Typography
-            variant="subtitle2"
-            sx={{
-              color: '#f1f5f9',
-              fontWeight: 600,
-              fontSize: '0.8125rem',
-              lineHeight: 1.3,
-              overflow: 'hidden',
-              textOverflow: 'ellipsis',
-              whiteSpace: 'nowrap',
-            }}
-          >
-            {device.name}
-          </Typography>
+
           {(fv || pv) && (
-            <Typography
-              variant="caption"
-              sx={{
-                fontSize: '0.6875rem',
-                fontFamily: 'monospace',
-                overflow: 'hidden',
-                textOverflow: 'ellipsis',
-                whiteSpace: 'nowrap',
-              }}
-            >
-              {same ? (
-                <Box
-                  component="span"
-                  sx={{ background: 'linear-gradient(90deg, #2dd4bf, #fb923c)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}
-                >
-                  {fv}
-                </Box>
-              ) : (
-                <>
-                  {fv && <Box component="span" sx={{ color: 'rgba(45,212,191,0.8)' }}>{fv}</Box>}
-                  {fv && pv && <Box component="span" sx={{ color: '#475569', mx: 0.5 }}>|</Box>}
-                  {pv && <Box component="span" sx={{ color: 'rgba(251,146,60,0.8)' }}>{pv}</Box>}
-                </>
+            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0.25 }}>
+              {fv && (
+                <Typography variant="caption" sx={{ fontSize: '0.7rem', color: '#94a3b8', fontFamily: 'monospace' }}>
+                  Free: {fv}
+                </Typography>
               )}
-            </Typography>
+              {pv && fv && pv !== fv && (
+                <Typography variant="caption" sx={{ fontSize: '0.7rem', color: '#94a3b8', fontFamily: 'monospace' }}>
+                  Plus: {pv}
+                </Typography>
+              )}
+              {pv && !fv && (
+                <Typography variant="caption" sx={{ fontSize: '0.7rem', color: '#94a3b8', fontFamily: 'monospace' }}>
+                  Plus: {pv}
+                </Typography>
+              )}
+              {same && (
+                <Typography variant="caption" sx={{ fontSize: '0.7rem', color: '#94a3b8', fontFamily: 'monospace' }}>
+                  {fv}
+                </Typography>
+              )}
+            </Box>
           )}
         </CardContent>
       </CardActionArea>
